@@ -1,0 +1,22 @@
+/* variable_assets_request_table */
+.sticky-col {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 0;
+    /* background-color: #f2f2f2 !important; */
+    color: black !important;
+}
+
+.first-col {
+    width: 1%;
+    left: 0px;
+}
+
+.second-col {
+    left: 2%;
+}
+
+.three-col {
+    left: 10%;
+}
