@@ -21,6 +21,7 @@ class ChangePasswordController extends Controller
         $id = auth()->user()->id;
         $employee = User::findOrFail($id);
         $employee->password = $request->password ? Hash::make($request->password) : $employee->password;
+        $employee->update();
         return redirect()->back()->with('success', 'Your password has been change successfully.');
     }
 }

@@ -26,10 +26,9 @@ class UpdateStudentAccount extends FormRequest
         $id = $this->route('student_account');
         return [
             'name' => ['required', 'string', 'max:255'],
-            'email' => 'required|unique:users,email,' . $id,
+            'email' => 'unique:users,email,' . $id,
             'language_level_id' => ['required'],
             'age' => ['required', 'numeric', 'min:15', 'max:70'],
-            'phone' => ['required'],
         ];
     }
 }

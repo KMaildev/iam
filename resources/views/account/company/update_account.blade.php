@@ -34,34 +34,25 @@
                                     </div>
                                 </div>
 
+
                                 <div class="row mb-3">
                                     <label for="name" class="col-md-4 col-form-label text-md-end">
-                                        Gender
+                                        Phone
                                     </label>
 
                                     <div class="col-md-6">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="gender" id="Male"
-                                                value="Male" @if ($user->gender == 'Male') checked @endif>
-                                            <label class="form-check-label" for="Male">
-                                                Male
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="gender" id="Female"
-                                                value="Female" value="Male"
-                                                @if ($user->gender == 'Female') checked @endif>
-                                            <label class="form-check-label" for="Female">
-                                                Female
-                                            </label>
-                                        </div>
-                                        @error('gender')
+                                        <input id="name" type="text"
+                                            class="form-control @error('phone') is-invalid @enderror" name="phone"
+                                            value="{{ $user->phone_no ?? '' }}" autocomplete="off" autofocus>
+
+                                        @error('phone')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
                                 </div>
+
 
                                 <div class="row mb-3">
                                     <label for="name" class="col-md-4 col-form-label text-md-end">
@@ -82,23 +73,7 @@
                                 </div>
 
 
-                                <div class="row mb-3">
-                                    <label for="name" class="col-md-4 col-form-label text-md-end">
-                                        Phone
-                                    </label>
-
-                                    <div class="col-md-6">
-                                        <input id="name" type="text"
-                                            class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                            value="{{ $user->phone ?? '' }}" autocomplete="off" autofocus>
-
-                                        @error('phone')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
+                                
 
                                 <div class="row mb-0">
                                     <div class="col-md-6 offset-md-4">
@@ -118,5 +93,5 @@
     </div>
 @endsection
 @section('script')
-{!! JsValidator::formRequest('App\Http\Requests\UpdateCompanyAccount', '#create-form') !!}
+    {!! JsValidator::formRequest('App\Http\Requests\UpdateCompanyAccount', '#create-form') !!}
 @endsection

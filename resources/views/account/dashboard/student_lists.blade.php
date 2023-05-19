@@ -22,101 +22,150 @@
                         <table id="datatable" class="table table-bordered table-sm yajra-datatable">
                             <thead>
                                 <tr style="background-color: #903731;">
+
                                     <th class="text-white text-center" style="width: 1%;">
-                                        #
+                                        No.
                                     </th>
+
                                     <th class="text-white text-center" style="width: 100px;">
                                         Name
                                     </th>
-                                    <th class="text-white text-center" style="width: 70px;">
-                                        Gender
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Date of Birth
                                     </th>
-                                    <th class="text-white text-center" style="width: 70px;">
+
+                                    <th class="text-white text-center" style="width: 100px;">
                                         Age
                                     </th>
-                                    <th class="text-white text-center" style="width: 70px;">
-                                        Japanese Level
-                                    </th>
+
                                     <th class="text-white text-center" style="width: 100px;">
-                                        Career
+                                        Gender
                                     </th>
-                                    <th class="text-white text-center" style="width: 70px;">
+
+                                    <th class="text-white text-center" style="width: 100px;">
                                         Height
                                     </th>
-                                    <th class="text-white text-center" style="width: 70px;">
+
+                                    <th class="text-white text-center" style="width: 100px;">
                                         Weight
                                     </th>
+
                                     <th class="text-white text-center" style="width: 100px;">
-                                        Qualification
+                                        Japanese Level
                                     </th>
+
                                     <th class="text-white text-center" style="width: 100px;">
-                                        Special Skills
+                                        Education
                                     </th>
+
                                     <th class="text-white text-center" style="width: 100px;">
-                                        Visited to Japan or Not?
+                                        Foreign Experience
                                     </th>
-                                    <th class="text-white text-center" style="width: 70px;">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Other Qualification
+                                    </th>
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Marital Status
+                                    </th>
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Blood Type
+                                    </th>
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Wearing Glasses/ Not
+                                    </th>
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Birth Place
+                                    </th>
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Nationality
+                                    </th>
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Religion
+                                    </th>
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Address
+                                    </th>
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Phone No.
+                                    </th>
+
+                                    <th class="text-white text-center" style="width: 100px;">
                                         Action
                                     </th>
                                 </tr>
                             </thead>
-
                             <tfoot>
-                                <th>
-                                    <input type="text" data-colum="0" style="width: 100%;" hidden>
-                                </th>
-
-                                <th>
-                                    <input type="text" style="width: 100%;" data-colum="1" placeholder="Name">
-                                </th>
-
-                                <th>
-                                    <input type="text" style="width: 100%;" data-colum="2" placeholder="Gender">
-                                </th>
-
-                                <th>
-                                    <input type="text" style="width: 100%;" data-colum="3" placeholder="Age">
-                                </th>
-
-                                <th>
-                                    <input type="text" style="width: 100%;" data-colum="4"
-                                        placeholder="Japanese Level">
-                                </th>
-
-                                <th>
-                                    <input type="text" style="width: 100%;" data-colum="5" placeholder="Career">
-                                </th>
-
-                                <th>
-                                    <input type="text" style="width: 100%;" data-colum="6" placeholder="Height">
-                                </th>
-
-                                <th>
-                                    <input type="text" style="width: 100%;" data-colum="7" placeholder="Weight">
-                                </th>
-
-                                <th>
-                                    <input type="text" style="width: 100%;" data-colum="8"
-                                        placeholder="Qualification">
-                                </th>
-
-                                <th>
-                                    <input type="text" style="width: 100%;" data-colum="9"
-                                        placeholder="Special Skills">
-                                </th>
-
-                                <th>
-                                    <input type="text" style="width: 100%;" data-colum="10"
-                                        placeholder="Visited to Japan or Not?">
-                                </th>
-
-                                <th>
-                                    <input type="text" data-colum="11" hidden>
-                                </th>
-
-
+                                <tr>
+                                    <th>
+                                        <input type="text" data-colum="0" placeholder="Search" hidden>
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="1" placeholder="Search">
+                                        {{-- marketing_name --}}
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="2" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="3" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="4" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="5" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="6" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="7" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="8" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="9" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="10" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="11" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="12" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="13" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="14" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="15" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="16" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="17" placeholder="Search">
+                                    </th>
+                                    <th>
+                                        <input type="text" data-colum="18" placeholder="Search">
+                                    </th>
+                                </tr>
                             </tfoot>
-
                         </table>
                     </div>
                 </div>
@@ -135,7 +184,7 @@
                 serverSide: true,
                 ordering: false,
                 fixedHeader: true,
-                scrollY: 500,
+                scrollY: 200,
                 scrollX: true,
                 ajax: {
                     url: "{{ route('student_lists_datatable') }}",
@@ -148,26 +197,25 @@
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',
                     },
+
                     {
                         data: 'name',
                         name: 'name',
                     },
+
                     {
-                        data: 'gender',
-                        name: 'gender',
+                        data: 'date_of_birth',
+                        name: 'date_of_birth',
                     },
+
                     {
                         data: 'age',
                         name: 'age',
                     },
-                    {
-                        data: 'language_level',
-                        name: 'language_level',
-                    },
 
                     {
-                        data: 'professional_career',
-                        name: 'professional_career',
+                        data: 'gender',
+                        name: 'gender',
                     },
 
                     {
@@ -181,24 +229,59 @@
                     },
 
                     {
-                        data: 'qualification',
-                        name: 'qualification',
+                        data: 'language_level_id',
+                        name: 'language_level_id',
                     },
 
                     {
-                        data: 'special_skills',
-                        name: 'special_skills',
+                        data: 'education',
+                        name: 'education',
                     },
 
                     {
-                        data: 'visited',
-                        name: 'visited',
+                        data: 'foreign_experience',
+                        name: 'foreign_experience',
+                    },
+                    {
+                        data: 'other_qualification',
+                        name: 'other_qualification',
+                    },
+                    {
+                        data: 'marital_status',
+                        name: 'marital_status',
+                    },
+                    {
+                        data: 'blood_type',
+                        name: 'blood_type',
+                    },
+                    {
+                        data: 'wearing_glasses_or_not',
+                        name: 'wearing_glasses_or_not',
+                    },
+                    {
+                        data: 'birth_place',
+                        name: 'birth_place',
+                    },
+                    {
+                        data: 'nationality',
+                        name: 'nationality',
+                    },
+                    {
+                        data: 'religion',
+                        name: 'religion',
+                    },
+                    {
+                        data: 'address',
+                        name: 'address',
+                    },
+                    {
+                        data: 'phone_no',
+                        name: 'phone_no',
                     },
                     {
                         data: 'action',
                         name: 'action',
                     },
-
                 ],
             });
         });

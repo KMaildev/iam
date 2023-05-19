@@ -19,5 +19,6 @@ class Company extends Model
         'account_type',
         'created_at',
         'updated_at',
+        'user_id',
     ];
 }

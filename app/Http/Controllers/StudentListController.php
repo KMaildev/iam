@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CompanyUserList;
+use App\Models\User;
 use App\Models\UserList;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
@@ -11,24 +12,24 @@ class StudentListController extends Controller
 {
     public function index(Request $request)
     {
-        $data = UserList::with('language_level')
+        $data = User::with('language_level')
             ->where('account_type', 'student')
-            ->where('select_status', NULL)
+            // ->where('select_status', NULL)
             ->orderBy('id', 'DESC');
 
         return DataTables::of($data)
 
             ->addIndexColumn()
 
-            ->editColumn('language_level', function ($each) {
-                return  $each->language_level ? $each->language_level->title : '';
-            })
+            // ->editColumn('language_level', function ($each) {
+            //     return  $each->language_level ? $each->language_level->title : '';
+            // })
 
-            ->filterColumn('language_level', function ($query, $keyword) {
-                $query->whereHas('language_level', function ($q1) use ($keyword) {
-                    $q1->where('title', 'like', '%' . $keyword . '%');
-                });
-            })
+            // ->filterColumn('language_level', function ($query, $keyword) {
+            //     $query->whereHas('language_level', function ($q1) use ($keyword) {
+            //         $q1->where('title', 'like', '%' . $keyword . '%');
+            //     });
+            // })
 
             ->addColumn('action', function ($each) {
                 $action =
@@ -41,7 +42,7 @@ class StudentListController extends Controller
                 return $action;
             })
 
-            ->rawColumns(['language_level', 'action'])
+            ->rawColumns(['action'])
             ->make(true);
     }
 

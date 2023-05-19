@@ -41,6 +41,7 @@
                                                     <thead style="background-color: #e13c31;">
                                                         <tr>
                                                             <th class="text-center text-white" style="width: 1%;">#</th>
+                                                            <th class="text-center text-white">Photo</th>
                                                             <th class="text-center text-white">Download</th>
                                                             <th class="text-center text-white">Upload Date</th>
                                                             <th class="text-center text-white" style="width: 1%;">Action
@@ -52,6 +53,15 @@
                                                             <tr>
                                                                 <td class="text-center">
                                                                     {{ $key + 1 }}
+                                                                </td>
+
+                                                                <td>
+                                                                    @if ($value->file_path)
+                                                                        <img src="{{ $value->file_path }}"
+                                                                            alt=""
+                                                                            style="width: 100px; height: 100px; background-position: center; background-size: contain, cover;"
+                                                                            data-enlargeable>
+                                                                    @endif
                                                                 </td>
 
                                                                 <td class="text-center">

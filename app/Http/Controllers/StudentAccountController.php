@@ -20,51 +20,64 @@ class StudentAccountController extends Controller
     public function update(UpdateStudentAccount $request, $id)
     {
         if (auth()->user()->id == $id) {
+
+
+            if ($request->hasFile('photo')) {
+                $photo = $request->file('photo');
+                $path = $photo->store('public/photo');
+            }
+    
+            if ($request->hasFile('nrc_front')) {
+                $nrc_front = $request->file('nrc_front');
+                $nrc_front_path = $nrc_front->store('public/photo');
+            }
+    
+            if ($request->hasFile('nrc_back')) {
+                $nrc_back = $request->file('nrc_back');
+                $nrc_back_path = $nrc_back->store('public/photo');
+            }
+
+            if ($request->hasFile('members_list_file')) {
+                $members_list_file = $request->file('members_list_file');
+                $members_list_file_path = $members_list_file->store('public/photo');
+            }
+
+            if ($request->hasFile('japan_certificate')) {
+                $japan_certificate = $request->file('japan_certificate');
+                $japan_certificate_path = $japan_certificate->store('public/photo');
+            }
+
             $user = User::findOrFail($id);
             $user->name = $request->name;
             $user->email = $request->email;
             $user->gender = $request->gender;
             $user->age = $request->age;
-            $user->language_level_id = $request->language_level_id;
-            $user->professional_career = $request->professional_career;
+            $user->date_of_birth = $request->date_of_birth;
             $user->height = $request->height;
             $user->weight = $request->weight;
-            $user->qualification = $request->qualification;
-            $user->special_skills = $request->special_skills;
-            $user->visited = $request->visited;
-            $user->nrc = $request->nrc;
-            $user->date_of_birth = $request->date_of_birth;
+            $user->language_level_id = $request->language_level_id;
+            $user->education = $request->education;
+            $user->foreign_experience = $request->foreign_experience;
+            $user->other_qualification = $request->other_qualification;
+            $user->marital_status = $request->marital_status;
+            $user->blood_type = $request->blood_type;
+            $user->wearing_glasses_or_not = $request->wearing_glasses_or_not;
+            $user->birth_place = $request->birth_place;
+            $user->nationality = $request->nationality;
+            $user->religion = $request->religion;
             $user->address = $request->address;
-            $user->phone = $request->phone;
-            $user->sibling = $request->sibling;
-            $user->visited_sibling = $request->visited_sibling;
+            $user->phone_no = $request->phone_no;
+
+            $user->photo = $path ?? $user->photo;
+            $user->nrc_photo_front = $nrc_front_path ?? $user->nrc_photo_front;
+            $user->nrc_photo_back = $nrc_back_path ?? $user->nrc_photo_back;
+            $user->household_members = $members_list_file_path ?? $user->household_members;
+            $user->japan_certificate = $japan_certificate_path ?? $user->japan_certificate;
+
             $user->update();
-
-
-            $user_list = UserList::findOrFail($id);
-            $user_list->name = $request->name;
-            $user_list->email = $request->email;
-            $user_list->gender = $request->gender;
-            $user_list->age = $request->age;
-            $user_list->language_level_id = $request->language_level_id;
-            $user_list->professional_career = $request->professional_career;
-            $user_list->height = $request->height;
-            $user_list->weight = $request->weight;
-            $user_list->qualification = $request->qualification;
-            $user_list->special_skills = $request->special_skills;
-            $user_list->visited = $request->visited;
-            $user_list->nrc = $request->nrc;
-            $user_list->date_of_birth = $request->date_of_birth;
-            $user_list->address = $request->address;
-            $user_list->phone = $request->phone;
-            $user_list->sibling = $request->sibling;
-            $user_list->visited_sibling = $request->visited_sibling;
-            $user_list->update();
-
-
             return redirect()->back()->with('success', 'Your processing has been completed.');
         } else {
-            return redirect()->back()->with('error', 'Error.');
+            return redirect()->back()->with('error', 'Something went wrong please try again');
         }
     }
 }

@@ -156,7 +156,7 @@
                                 <div class="col-md-6">
                                     <select class="form-control" name="language_level_id">
                                         <option selected value="">
-                                            --Please Select YJapanese Level--
+                                            --Please Select Japanese Level--
                                         </option>
                                         @foreach ($language_levels as $language_level)
                                             <option value="{{ $language_level->id }}">

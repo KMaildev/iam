@@ -46,11 +46,15 @@
     <script src="{{ asset('assets/js/revolution-slider/extra-rev-slider1.js') }}"></script>
     {{-- <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css"> --}}
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"> --}}
     <link rel="stylesheet" href="{{ asset('assets/toastr/toastr.css') }}" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    {{-- <link rel="stylesheet"
+        href="{{ asset('assets/datatables/dataTables.bootstrap4.minfd53.css?v4.0.1') }}"> --}}
 </head>
 
 <body class="tm-container-1300px has-side-panel side-panel-right">
@@ -68,9 +72,21 @@
         <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
     </div>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/datatables/jquery.dataTables.js') }}"></script>
+    
     <script src="{{ asset('assets/toastr/toastr.js') }}"></script>
     <script type="text/javascript" src="{{ url('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
+
+
+    <script type="text/javascript" src="{{ asset('assets/datatables/jquery.dataTables.js') }}"></script>
+
+
+    {{-- Datatable --}}
+    {{-- <script src="{{ asset('assets/datatables/jquery.dataTablesfd53.js?v4.0.1') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/datatables/dataTables.bootstrap4fd53.js?v4.0.1') }}"></script> --}}
+
+    {{-- <script src="{{ asset('assets/datatables/datatables.minfd53.js?v4.0.1') }}"></script>
+    <script src="{{ asset('aassets/datatables/tables/datatable.minfd53.js') }}"></script> --}}
+
     @yield('script')
 </body>
 

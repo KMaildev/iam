@@ -66,20 +66,9 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        if ($data['account_type'] == 'company') {
-            Company::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-                'name' => $data['name'],
-                'phone' => $data['phone_no'],
-                'address' => $data['address'],
-                'account_type' => $data['account_type'],
-                'is_active' => 'active',
-            ]);
-        }
+        
 
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -103,5 +92,21 @@ class RegisterController extends Controller
             'account_type' => $data['account_type'],
             'is_active' => 'active',
         ]);
+
+        if ($data['account_type'] == 'company') {
+            Company::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'name' => $data['name'],
+                'phone' => $data['phone_no'],
+                'address' => $data['address'],
+                'account_type' => $data['account_type'],
+                'is_active' => 'active',
+                'user_id' => $user->id,
+            ]);
+        }
+
+        return $user;
     }
 }
