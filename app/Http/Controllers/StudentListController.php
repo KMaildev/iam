@@ -13,27 +13,27 @@ class StudentListController extends Controller
     public function index(Request $request)
     {
         $data = User::with('language_level')
-            ->where('account_type', 'student')
+            ->where('account_type', 'student');
             // ->where('select_status', NULL)
-            ->orderBy('id', 'DESC');
+            // ->orderBy('id', 'DESC');
 
         return DataTables::of($data)
 
             ->addIndexColumn()
 
-            // ->editColumn('language_level', function ($each) {
-            //     return  $each->language_level ? $each->language_level->title : '';
-            // })
+            ->editColumn('language_level', function ($each) {
+                return  $each->language_level ? $each->language_level->title : '';
+            })
 
-            // ->filterColumn('language_level', function ($query, $keyword) {
-            //     $query->whereHas('language_level', function ($q1) use ($keyword) {
-            //         $q1->where('title', 'like', '%' . $keyword . '%');
-            //     });
-            // })
+            ->filterColumn('language_level', function ($query, $keyword) {
+                $query->whereHas('language_level', function ($q1) use ($keyword) {
+                    $q1->where('title', 'like', '%' . $keyword . '%');
+                });
+            })
 
             ->addColumn('action', function ($each) {
                 $action =
-                    '<button class="btn btn-primary btn-sm" type="button" 
+                    '<button class="btn btn-danger btn-sm" type="button" 
                         id="addToMyStudent"
                         data-id="' . $each->id . '">
                         Select
@@ -42,7 +42,7 @@ class StudentListController extends Controller
                 return $action;
             })
 
-            ->rawColumns(['action'])
+            ->rawColumns(['language_level', 'action'])
             ->make(true);
     }
 

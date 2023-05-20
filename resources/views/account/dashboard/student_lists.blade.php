@@ -1,5 +1,5 @@
-{{-- <link rel="stylesheet" href="{{ asset('css/table.css') }}"> --}}
-<style>
+<link rel="stylesheet" href="{{ asset('css/table.css') }}">
+{{-- <style>
     .dataTables_filter {
         display: none;
     }
@@ -7,7 +7,7 @@
     tfoot {
         display: table-header-group !important;
     }
-</style>
+</style> --}}
 <div class="col-md-9 col-sm-9 col-lg-9">
     <div class="card">
         <div class="card-header">
@@ -22,11 +22,6 @@
                         <table id="datatable" class="table table-bordered table-sm yajra-datatable">
                             <thead>
                                 <tr style="background-color: #903731;">
-
-                                    <th class="text-white text-center" style="width: 1%;">
-                                        No.
-                                    </th>
-
                                     <th class="text-white text-center" style="width: 100px;">
                                         Name
                                     </th>
@@ -103,66 +98,105 @@
                                         Action
                                     </th>
                                 </tr>
-                            </thead>
-                            <tfoot>
+
                                 <tr>
-                                    <th>
-                                        <input type="text" data-colum="0" placeholder="Search" hidden>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="display: none"></td>
+                                </tr>
+                            </thead>
+
+                            <tfoot>
+                                <tr style="background-color: #903731;">
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Name
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="1" placeholder="Search">
-                                        {{-- marketing_name --}}
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Date of Birth
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="2" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Age
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="3" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Gender
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="4" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Height
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="5" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Weight
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="6" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Japanese Level
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="7" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Education
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="8" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Foreign Experience
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="9" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Other Qualification
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="10" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Marital Status
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="11" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Blood Type
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="12" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Wearing Glasses/ Not
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="13" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Birth Place
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="14" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Nationality
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="15" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Religion
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="16" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Address
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="17" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
+                                        Phone No.
                                     </th>
-                                    <th>
-                                        <input type="text" data-colum="18" placeholder="Search">
+
+                                    <th class="text-white text-center" style="width: 100px;">
                                     </th>
                                 </tr>
                             </tfoot>
@@ -186,6 +220,7 @@
                 fixedHeader: true,
                 scrollY: 200,
                 scrollX: true,
+                dom: 'Btip',
                 ajax: {
                     url: "{{ route('student_lists_datatable') }}",
                 },
@@ -193,10 +228,11 @@
                     1700,
                     1900, 2000
                 ],
-                columns: [{
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex',
-                    },
+                columns: [
+                    // {
+                    //     data: 'DT_RowIndex',
+                    //     name: 'DT_RowIndex',
+                    // },
 
                     {
                         data: 'name',
@@ -229,8 +265,8 @@
                     },
 
                     {
-                        data: 'language_level_id',
-                        name: 'language_level_id',
+                        data: 'language_level',
+                        name: 'language_level',
                     },
 
                     {
@@ -283,8 +319,35 @@
                         name: 'action',
                     },
                 ],
+
+                initComplete: function() {
+                    this.api().columns().every(function() {
+                        var column = this;
+                        var col = this.index();
+                        var select = $(
+                                '<select style="width: 100%;"><option value=""></option></select>'
+                            )
+                            .appendTo($('thead tr:eq(1) td').eq(col))
+                            .on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, true)
+                                    .draw();
+                            });
+
+                        column.data().unique().sort().each(function(d, j) {
+                            select.append('<option value="' + d +
+                                '">' + d +
+                                '</option>')
+                        });
+                    });
+                }
             });
         });
+
 
         $(document).ready(function() {
             $('#datatable thead th').each(function() {
@@ -303,6 +366,7 @@
         });
 
         $('body').on('click', '#addToMyStudent', function(e) {
+            alert(1)
             e.preventDefault();
             student_user_list_id = $(this).data('id');
             var url = '{{ url('add_company_user_list') }}';
