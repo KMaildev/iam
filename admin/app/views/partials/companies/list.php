@@ -23,16 +23,10 @@ $show_pagination = $this->show_pagination;
         <div class="container-fluid">
             <div class="row ">
                 <div class="col ">
-                    <h4 class="record-title">Users</h4>
-                </div>
-                <div class="col-sm-3 ">
-                    <a  class="btn btn btn-primary my-1" href="<?php print_link("users/add") ?>">
-                        <i class="fa fa-plus"></i>                              
-                        Add New Users 
-                    </a>
+                    <h4 class="record-title">Companies</h4>
                 </div>
                 <div class="col-sm-4 ">
-                    <form  class="search" action="<?php print_link('users'); ?>" method="get">
+                    <form  class="search" action="<?php print_link('companies'); ?>" method="get">
                         <div class="input-group">
                             <input value="<?php echo get_value('search'); ?>" class="form-control" type="text" name="search"  placeholder="Search" />
                                 <div class="input-group-append">
@@ -54,7 +48,7 @@ $show_pagination = $this->show_pagination;
                                     if(!empty($field_name)){
                                     ?>
                                     <li class="breadcrumb-item">
-                                        <a class="text-decoration-none" href="<?php print_link('users'); ?>">
+                                        <a class="text-decoration-none" href="<?php print_link('companies'); ?>">
                                             <i class="fa fa-angle-left"></i>
                                         </a>
                                     </li>
@@ -71,7 +65,7 @@ $show_pagination = $this->show_pagination;
                                     if(get_value("search")){
                                     ?>
                                     <li class="breadcrumb-item">
-                                        <a class="text-decoration-none" href="<?php print_link('users'); ?>">
+                                        <a class="text-decoration-none" href="<?php print_link('companies'); ?>">
                                             <i class="fa fa-angle-left"></i>
                                         </a>
                                     </li>
@@ -102,7 +96,7 @@ $show_pagination = $this->show_pagination;
                     <div class="col-md-12 comp-grid">
                         <?php $this :: display_page_errors(); ?>
                         <div  class=" animated fadeIn page-content">
-                            <div id="users-list-records">
+                            <div id="companies-list-records">
                                 <div id="page-report-body" class="table-responsive">
                                     <table class="table  table-striped table-sm text-left">
                                         <thead class="table-header bg-light">
@@ -115,17 +109,9 @@ $show_pagination = $this->show_pagination;
                                                 </th>
                                                 <th class="td-sno">#</th>
                                                 <th  class="td-name"> Name</th>
-                                                <th  class="td-gender"> Gender</th>
-                                                <th  class="td-age"> Age</th>
-                                                <th  class="td-language_level_id"> Language Level </th>
-                                                <th  class="td-phone_no"> Phone No</th>
-                                                <th  class="td-companie_id"> Company ID</th>
-                                                <th  class="td-first_status"> First Status</th>
-                                                <th  class="td-first_select_date"> First Select Date</th>
-                                                <th  class="td-second_status"> Second Status</th>
-                                                <th  class="td-second_select_date"> Second Select Date</th>
-                                                <th  class="td-third_status"> Third Status</th>
-                                                <th  class="td-third_select_date"> Third Select Date</th>
+                                                <th  class="td-address"> Address</th>
+                                                <th  class="td-phone"> Phone</th>
+                                                <th  class="td-email"> Email</th>
                                                 <th class="td-btn"></th>
                                             </tr>
                                         </thead>
@@ -151,9 +137,9 @@ $show_pagination = $this->show_pagination;
                                                     <td class="td-name">
                                                         <span  data-value="<?php echo $data['name']; ?>" 
                                                             data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("users/editfield/" . urlencode($data['id'])); ?>" 
+                                                            data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
                                                             data-name="name" 
-                                                            data-title="Enter Company Name or Name" 
+                                                            data-title="Enter Name" 
                                                             data-placement="left" 
                                                             data-toggle="click" 
                                                             data-type="text" 
@@ -163,155 +149,28 @@ $show_pagination = $this->show_pagination;
                                                             <?php echo $data['name']; ?> 
                                                         </span>
                                                     </td>
-                                                    <td class="td-gender">
-                                                        <span  data-source='<?php echo json_encode_quote(Menu :: $gender); ?>' 
-                                                            data-value="<?php echo $data['gender']; ?>" 
+                                                    <td class="td-address">
+                                                        <span  data-value="<?php echo $data['address']; ?>" 
                                                             data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("users/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="gender" 
-                                                            data-title="Select a value ..." 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="select" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" >
-                                                            <?php echo $data['gender']; ?> 
-                                                        </span>
-                                                    </td>
-                                                    <td class="td-age">
-                                                        <span  data-value="<?php echo $data['age']; ?>" 
-                                                            data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("users/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="age" 
-                                                            data-title="Enter Age" 
+                                                            data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
+                                                            data-name="address" 
+                                                            data-title="Enter Address" 
                                                             data-placement="left" 
                                                             data-toggle="click" 
                                                             data-type="text" 
                                                             data-mode="popover" 
                                                             data-showbuttons="left" 
                                                             class="is-editable" >
-                                                            <?php echo $data['age']; ?> 
+                                                            <?php echo $data['address']; ?> 
                                                         </span>
                                                     </td>
-                                                    <td class="td-language_level_id">
-                                                        <div class="inline-page">
-                                                            <a class="btn btn-sm btn-primary open-page-inline" href="<?php print_link("language_levels/view/" . urlencode($data['language_level_id'])); ?>">
-                                                                <i class="fa fa-eye"></i> <?php echo $data['language_levels_title'] ?>
-                                                            </a>
-                                                            <div class="page-content reset-grids d-none animated fadeIn"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="td-phone_no"><a href="<?php print_link("tel:$data[phone_no]") ?>"><?php echo $data['phone_no']; ?></a></td>
-                                                    <td class="td-companie_id">
-                                                        <a class="btn btn-sm btn-primary open-page-popover" href="<?php print_link("companies/view/" . urlencode($data['companie_id'])); ?>">
-                                                            <i class="fa fa-eye"></i> <?php echo $data['companie_id'] ?>
-                                                        </a>
-                                                    </td>
-                                                    <td class="td-first_status">
-                                                        <span  data-source='<?php echo json_encode_quote(Menu :: $first_status); ?>' 
-                                                            data-value="<?php echo $data['first_status']; ?>" 
-                                                            data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("users/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="first_status" 
-                                                            data-title="Select a value ..." 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="select" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" >
-                                                            <?php echo $data['first_status']; ?> 
-                                                        </span>
-                                                    </td>
-                                                    <td class="td-first_select_date">
-                                                        <span  data-flatpickr="{ enableTime: false, minDate: '', maxDate: ''}" 
-                                                            data-value="<?php echo $data['first_select_date']; ?>" 
-                                                            data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("users/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="first_select_date" 
-                                                            data-title="Enter First Select Date" 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="flatdatetimepicker" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" >
-                                                            <?php echo $data['first_select_date']; ?> 
-                                                        </span>
-                                                    </td>
-                                                    <td class="td-second_status">
-                                                        <span  data-source='<?php echo json_encode_quote(Menu :: $first_status); ?>' 
-                                                            data-value="<?php echo $data['second_status']; ?>" 
-                                                            data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("users/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="second_status" 
-                                                            data-title="Select a value ..." 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="select" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" >
-                                                            <?php echo $data['second_status']; ?> 
-                                                        </span>
-                                                    </td>
-                                                    <td class="td-second_select_date">
-                                                        <span  data-flatpickr="{ enableTime: false, minDate: '', maxDate: ''}" 
-                                                            data-value="<?php echo $data['second_select_date']; ?>" 
-                                                            data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("users/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="second_select_date" 
-                                                            data-title="Enter Second Select Date" 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="flatdatetimepicker" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" >
-                                                            <?php echo $data['second_select_date']; ?> 
-                                                        </span>
-                                                    </td>
-                                                    <td class="td-third_status">
-                                                        <span  data-source='<?php echo json_encode_quote(Menu :: $first_status); ?>' 
-                                                            data-value="<?php echo $data['third_status']; ?>" 
-                                                            data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("users/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="third_status" 
-                                                            data-title="Select a value ..." 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="select" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" >
-                                                            <?php echo $data['third_status']; ?> 
-                                                        </span>
-                                                    </td>
-                                                    <td class="td-third_select_date">
-                                                        <span  data-flatpickr="{ enableTime: false, minDate: '', maxDate: ''}" 
-                                                            data-value="<?php echo $data['third_select_date']; ?>" 
-                                                            data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("users/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="third_select_date" 
-                                                            data-title="Enter Third Select Date" 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="flatdatetimepicker" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" >
-                                                            <?php echo $data['third_select_date']; ?> 
-                                                        </span>
-                                                    </td>
+                                                    <td class="td-phone"><a href="<?php print_link("tel:$data[phone]") ?>"><?php echo $data['phone']; ?></a></td>
+                                                    <td class="td-email"><a href="<?php print_link("mailto:$data[email]") ?>"><?php echo $data['email']; ?></a></td>
                                                     <th class="td-btn">
-                                                        <a class="btn btn-sm btn-success has-tooltip" title="View Record" href="<?php print_link("users/view/$rec_id"); ?>">
+                                                        <a class="btn btn-sm btn-success has-tooltip" title="View Record" href="<?php print_link("companies/view/$rec_id"); ?>">
                                                             <i class="fa fa-eye"></i> View
                                                         </a>
-                                                        <a class="btn btn-sm btn-info has-tooltip" title="Edit This Record" href="<?php print_link("users/edit/$rec_id"); ?>">
-                                                            <i class="fa fa-edit"></i> Edit
-                                                        </a>
-                                                        <a class="btn btn-sm btn-danger has-tooltip record-delete-btn" title="Delete this record" href="<?php print_link("users/delete/$rec_id/?csrf_token=$csrf_token&redirect=$current_page"); ?>" data-prompt-msg="Are you sure you want to delete this record?" data-display-style="modal">
+                                                        <a class="btn btn-sm btn-danger has-tooltip record-delete-btn" title="Delete this record" href="<?php print_link("companies/delete/$rec_id/?csrf_token=$csrf_token&redirect=$current_page"); ?>" data-prompt-msg="Are you sure you want to delete this record?" data-display-style="modal">
                                                             <i class="fa fa-times"></i>
                                                             Delete
                                                         </a>
@@ -344,7 +203,7 @@ $show_pagination = $this->show_pagination;
                                         <div class="row justify-content-center">    
                                             <div class="col-md-auto justify-content-center">    
                                                 <div class="p-3 d-flex justify-content-between">    
-                                                    <button data-prompt-msg="Are you sure you want to delete these records?" data-display-style="modal" data-url="<?php print_link("users/delete/{sel_ids}/?csrf_token=$csrf_token&redirect=$current_page"); ?>" class="btn btn-sm btn-danger btn-delete-selected d-none">
+                                                    <button data-prompt-msg="Are you sure you want to delete these records?" data-display-style="modal" data-url="<?php print_link("companies/delete/{sel_ids}/?csrf_token=$csrf_token&redirect=$current_page"); ?>" class="btn btn-sm btn-danger btn-delete-selected d-none">
                                                         <i class="fa fa-times"></i> Delete Selected
                                                     </button>
                                                     <div class="dropup export-btn-holder mx-1">

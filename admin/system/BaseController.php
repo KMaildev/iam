@@ -214,6 +214,50 @@ class BaseController{
 		);
 	
 
+		$this->file_upload_settings['nrc_photo_back'] = array(
+			"title" => "{{random}}",
+			"extensions" => ".jpg,.png,.gif,.jpeg",
+			"limit" => "1",
+			"filesize" => "3000",
+			"returnfullpath" => true,
+			"filenameprefix" => "",
+			"uploadDir" => "uploads/files/"
+		);
+	
+
+		$this->file_upload_settings['nrc_photo_front'] = array(
+			"title" => "{{random}}",
+			"extensions" => ".jpg,.png,.gif,.jpeg",
+			"limit" => "1",
+			"filesize" => "3000",
+			"returnfullpath" => true,
+			"filenameprefix" => "",
+			"uploadDir" => "uploads/files/"
+		);
+	
+
+		$this->file_upload_settings['household_members'] = array(
+			"title" => "{{random}}",
+			"extensions" => ".jpg,.png,.gif,.jpeg",
+			"limit" => "1",
+			"filesize" => "3000",
+			"returnfullpath" => true,
+			"filenameprefix" => "",
+			"uploadDir" => "uploads/files/"
+		);
+	
+
+		$this->file_upload_settings['japan_certificate'] = array(
+			"title" => "{{random}}",
+			"extensions" => ".jpg,.png,.gif,.jpeg",
+			"limit" => "1",
+			"filesize" => "3000",
+			"returnfullpath" => true,
+			"filenameprefix" => "",
+			"uploadDir" => "uploads/files/"
+		);
+	
+
 		$this->file_upload_settings['file_path'] = array(
 			"title" => "{{random}}",
 			"extensions" => "",

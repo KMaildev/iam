@@ -85,9 +85,9 @@ define("DEFAULT_EMAIL_ACCOUNT_NAME", "");
 
 // Database Configuration Settings
 define("DB_HOST", "localhost");
-define("DB_USERNAME", "zinmintu_kmailso");
-define("DB_PASSWORD", "KMail@Admin@2022");
-define("DB_NAME", "zinmintu_iam_myanmar");
+define("DB_USERNAME", "root");
+define("DB_PASSWORD", "");
+define("DB_NAME", "iam_myanmar");
 define("DB_TYPE", "mysql");
 define("DB_PORT", "");
 define("DB_CHARSET", "utf8");

@@ -50,7 +50,6 @@ Route::middleware('auth')->group(function () {
     Route::get('add_company_user_list', [CompanyUserListController::class, 'addCompanyUserList'])->name('add_company_user_list');
     Route::get('remove_company_user_list', [CompanyUserListController::class, 'removeCompanyUserList'])->name('remove_company_user_list');
 
-
     Route::get('student_lists_datatable', [StudentListController::class, 'index'])->name('student_lists_datatable');
     Route::get('company_students_datatable', [StudentListController::class, 'companyStudents'])->name('company_students_datatable');
 });

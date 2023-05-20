@@ -16,6 +16,18 @@ class Menu{
 		),
 		
 		array(
+			'path' => 'users', 
+			'label' => 'Students', 
+			'icon' => ''
+		),
+		
+		array(
+			'path' => 'companies', 
+			'label' => 'Company', 
+			'icon' => ''
+		),
+		
+		array(
 			'path' => 'activities', 
 			'label' => 'Activities', 
 			'icon' => ''
@@ -78,7 +90,17 @@ class Menu{
 		
 	
 	
-			public static $second_status = array(
+			public static $gender = array(
+		array(
+			"value" => "male", 
+			"label" => "Male", 
+		),
+		array(
+			"value" => "Female", 
+			"label" => "Female", 
+		),);
+		
+			public static $first_status = array(
 		array(
 			"value" => "selected", 
 			"label" => "Selected", 

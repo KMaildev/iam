@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\CompanyUserList;
 use App\Models\User;
 use App\Models\UserList;
@@ -49,7 +50,9 @@ class StudentListController extends Controller
 
     public function companyStudents(Request $request)
     {
-        $company_id = auth()->user()->id;
+        $company = auth()->user()->id;
+        $company_info = Company::where('user_id', $company)->first();
+        $company_id = $company_info->id;
 
         $data = User::with('language_level')
             ->where('companie_id', $company_id);

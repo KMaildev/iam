@@ -29,12 +29,24 @@ class SharedController extends BaseController{
 	}
 
 	/**
-     * user_lists_language_level_id_option_list Model Action
+     * users_language_level_id_option_list Model Action
      * @return array
      */
-	function user_lists_language_level_id_option_list(){
+	function users_language_level_id_option_list(){
 		$db = $this->GetModel();
-		$sqltext = "SELECT  DISTINCT id AS value,title AS label FROM language_levels";
+		$sqltext = "SELECT DISTINCT id AS value , title AS label FROM language_levels ORDER BY label ASC";
+		$queryparams = null;
+		$arr = $db->rawQuery($sqltext, $queryparams);
+		return $arr;
+	}
+
+	/**
+     * users_companie_id_option_list Model Action
+     * @return array
+     */
+	function users_companie_id_option_list(){
+		$db = $this->GetModel();
+		$sqltext = "SELECT DISTINCT id AS value , name AS label FROM companies ORDER BY label ASC";
 		$queryparams = null;
 		$arr = $db->rawQuery($sqltext, $queryparams);
 		return $arr;

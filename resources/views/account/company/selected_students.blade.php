@@ -217,7 +217,7 @@
                 orderCellsTop: true,
                 processing: true,
                 serverSide: true,
-                ordering: false,
+                ordering: true,
                 fixedHeader: true,
                 scrollY: 200,
                 scrollX: true,

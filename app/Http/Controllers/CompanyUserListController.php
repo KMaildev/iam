@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\CompanyUserList;
 use App\Models\User;
 use App\Models\UserList;
@@ -23,8 +24,9 @@ class CompanyUserListController extends Controller
         ]);
 
         $student_id = $request->student_id;
-        $company_id = auth()->user()->id;
-
+        $company = auth()->user()->id;
+        $company_info = Company::where('user_id', $company)->first();
+        $company_id = $company_info->id;
         $user = User::findOrFail($student_id);
         $user->companie_id = $company_id;
         $user->first_status = 'selected';
