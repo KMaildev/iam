@@ -366,21 +366,22 @@
         });
 
         $('body').on('click', '#addToMyStudent', function(e) {
-            alert(1)
             e.preventDefault();
-            student_user_list_id = $(this).data('id');
+            student_id = $(this).data('id');
             var url = '{{ url('add_company_user_list') }}';
             $.ajax({
                 url: url,
                 data: {
-                    user_list_id: student_user_list_id,
+                    student_id: student_id,
                 },
                 method: 'GET',
                 success: function(result) {
                     toastr.remove();
                     toastr.success("Your processing has been completed.");
+                    table.ajax.reload();
                 }
             });
         });
+        
     </script>
 @endsection

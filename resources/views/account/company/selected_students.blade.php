@@ -4,19 +4,11 @@
         <div class="col-md-12">
             <div class="row py-5">
                 @include('account.shared.side_bar')
-                <style>
-                    .dataTables_filter {
-                        display: none;
-                    }
 
-                    tfoot {
-                        display: table-header-group !important;
-                    }
-                </style>
                 <div class="col-md-9 col-sm-9 col-lg-9">
                     <div class="card">
                         <div class="card-header">
-                            Selected Student Lists
+                            Student Lists
                         </div>
 
                         <div class="card-body">
@@ -27,107 +19,184 @@
                                         <table id="datatable" class="table table-bordered table-sm yajra-datatable">
                                             <thead>
                                                 <tr style="background-color: #903731;">
-                                                    <th class="text-white text-center" style="width: 1%;">
-                                                        #
-                                                    </th>
                                                     <th class="text-white text-center" style="width: 100px;">
                                                         Name
                                                     </th>
-                                                    <th class="text-white text-center" style="width: 70px;">
-                                                        Gender
+
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Date of Birth
                                                     </th>
-                                                    <th class="text-white text-center" style="width: 70px;">
+
+                                                    <th class="text-white text-center" style="width: 100px;">
                                                         Age
                                                     </th>
-                                                    <th class="text-white text-center" style="width: 70px;">
-                                                        Japanese Level
-                                                    </th>
+
                                                     <th class="text-white text-center" style="width: 100px;">
-                                                        Career
+                                                        Gender
                                                     </th>
-                                                    <th class="text-white text-center" style="width: 70px;">
+
+                                                    <th class="text-white text-center" style="width: 100px;">
                                                         Height
                                                     </th>
-                                                    <th class="text-white text-center" style="width: 70px;">
+
+                                                    <th class="text-white text-center" style="width: 100px;">
                                                         Weight
                                                     </th>
+
                                                     <th class="text-white text-center" style="width: 100px;">
-                                                        Qualification
+                                                        Japanese Level
                                                     </th>
+
                                                     <th class="text-white text-center" style="width: 100px;">
-                                                        Special Skills
+                                                        Education
                                                     </th>
+
                                                     <th class="text-white text-center" style="width: 100px;">
-                                                        Visited to Japan or Not?
+                                                        Foreign Experience
                                                     </th>
-                                                    <th class="text-white text-center" style="width: 70px;">
+
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Other Qualification
+                                                    </th>
+
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Marital Status
+                                                    </th>
+
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Blood Type
+                                                    </th>
+
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Wearing Glasses/ Not
+                                                    </th>
+
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Birth Place
+                                                    </th>
+
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Nationality
+                                                    </th>
+
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Religion
+                                                    </th>
+
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Address
+                                                    </th>
+
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Phone No.
+                                                    </th>
+
+                                                    <th class="text-white text-center" style="width: 100px;">
                                                         Action
                                                     </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td style="display: none"></td>
                                                 </tr>
                                             </thead>
 
                                             <tfoot>
-                                                <th>
-                                                    <input type="text" data-colum="0" style="width: 100%;" hidden>
-                                                </th>
+                                                <tr style="background-color: #903731;">
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Name
+                                                    </th>
 
-                                                <th>
-                                                    <input type="text" style="width: 100%;" data-colum="1"
-                                                        placeholder="Name">
-                                                </th>
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Date of Birth
+                                                    </th>
 
-                                                <th>
-                                                    <input type="text" style="width: 100%;" data-colum="2"
-                                                        placeholder="Gender">
-                                                </th>
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Age
+                                                    </th>
 
-                                                <th>
-                                                    <input type="text" style="width: 100%;" data-colum="3"
-                                                        placeholder="Age">
-                                                </th>
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Gender
+                                                    </th>
 
-                                                <th>
-                                                    <input type="text" style="width: 100%;" data-colum="4"
-                                                        placeholder="Japanese Level">
-                                                </th>
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Height
+                                                    </th>
 
-                                                <th>
-                                                    <input type="text" style="width: 100%;" data-colum="5"
-                                                        placeholder="Career">
-                                                </th>
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Weight
+                                                    </th>
 
-                                                <th>
-                                                    <input type="text" style="width: 100%;" data-colum="6"
-                                                        placeholder="Height">
-                                                </th>
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Japanese Level
+                                                    </th>
 
-                                                <th>
-                                                    <input type="text" style="width: 100%;" data-colum="7"
-                                                        placeholder="Weight">
-                                                </th>
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Education
+                                                    </th>
 
-                                                <th>
-                                                    <input type="text" style="width: 100%;" data-colum="8"
-                                                        placeholder="Qualification">
-                                                </th>
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Foreign Experience
+                                                    </th>
 
-                                                <th>
-                                                    <input type="text" style="width: 100%;" data-colum="9"
-                                                        placeholder="Special Skills">
-                                                </th>
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Other Qualification
+                                                    </th>
 
-                                                <th>
-                                                    <input type="text" style="width: 100%;" data-colum="10"
-                                                        placeholder="Visited to Japan or Not?">
-                                                </th>
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Marital Status
+                                                    </th>
 
-                                                <th>
-                                                    <input type="text" data-colum="11" hidden>
-                                                </th>
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Blood Type
+                                                    </th>
 
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Wearing Glasses/ Not
+                                                    </th>
 
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Birth Place
+                                                    </th>
+
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Nationality
+                                                    </th>
+
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Religion
+                                                    </th>
+
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Address
+                                                    </th>
+
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                        Phone No.
+                                                    </th>
+
+                                                    <th class="text-white text-center" style="width: 100px;">
+                                                    </th>
+                                                </tr>
                                             </tfoot>
-
                                         </table>
                                     </div>
                                 </div>
@@ -150,8 +219,9 @@
                 serverSide: true,
                 ordering: false,
                 fixedHeader: true,
-                scrollY: 500,
+                scrollY: 200,
                 scrollX: true,
+                dom: 'Btip',
                 ajax: {
                     url: "{{ route('company_students_datatable') }}",
                 },
@@ -159,30 +229,30 @@
                     1700,
                     1900, 2000
                 ],
-                columns: [{
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex',
-                    },
+                columns: [
+                    // {
+                    //     data: 'DT_RowIndex',
+                    //     name: 'DT_RowIndex',
+                    // },
+
                     {
                         data: 'name',
                         name: 'name',
                     },
+
                     {
-                        data: 'gender',
-                        name: 'gender',
+                        data: 'date_of_birth',
+                        name: 'date_of_birth',
                     },
+
                     {
                         data: 'age',
                         name: 'age',
                     },
-                    {
-                        data: 'language_level',
-                        name: 'language_level',
-                    },
 
                     {
-                        data: 'professional_career',
-                        name: 'professional_career',
+                        data: 'gender',
+                        name: 'gender',
                     },
 
                     {
@@ -196,27 +266,89 @@
                     },
 
                     {
-                        data: 'qualification',
-                        name: 'qualification',
+                        data: 'language_level',
+                        name: 'language_level',
                     },
 
                     {
-                        data: 'special_skills',
-                        name: 'special_skills',
+                        data: 'education',
+                        name: 'education',
                     },
 
                     {
-                        data: 'visited',
-                        name: 'visited',
+                        data: 'foreign_experience',
+                        name: 'foreign_experience',
+                    },
+                    {
+                        data: 'other_qualification',
+                        name: 'other_qualification',
+                    },
+                    {
+                        data: 'marital_status',
+                        name: 'marital_status',
+                    },
+                    {
+                        data: 'blood_type',
+                        name: 'blood_type',
+                    },
+                    {
+                        data: 'wearing_glasses_or_not',
+                        name: 'wearing_glasses_or_not',
+                    },
+                    {
+                        data: 'birth_place',
+                        name: 'birth_place',
+                    },
+                    {
+                        data: 'nationality',
+                        name: 'nationality',
+                    },
+                    {
+                        data: 'religion',
+                        name: 'religion',
+                    },
+                    {
+                        data: 'address',
+                        name: 'address',
+                    },
+                    {
+                        data: 'phone_no',
+                        name: 'phone_no',
                     },
                     {
                         data: 'action',
                         name: 'action',
                     },
-
                 ],
+
+                initComplete: function() {
+                    this.api().columns().every(function() {
+                        var column = this;
+                        var col = this.index();
+                        var select = $(
+                                '<select style="width: 100%;"><option value=""></option></select>'
+                            )
+                            .appendTo($('thead tr:eq(1) td').eq(col))
+                            .on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, true)
+                                    .draw();
+                            });
+
+                        column.data().unique().sort().each(function(d, j) {
+                            select.append('<option value="' + d +
+                                '">' + d +
+                                '</option>')
+                        });
+                    });
+                }
             });
         });
+
 
         $(document).ready(function() {
             $('#datatable thead th').each(function() {
@@ -234,20 +366,19 @@
             });
         });
 
-        $('body').on('click', '#removeToMyStudent', function(e) {
+        $('body').on('click', '#removeMyStudent', function(e) {
             e.preventDefault();
-            company_user_list_id = $(this).data('id');
+            student_id = $(this).data('id');
             var url = '{{ url('remove_company_user_list') }}';
             $.ajax({
                 url: url,
                 data: {
-                    company_user_list_id: company_user_list_id,
+                    student_id: student_id,
                 },
                 method: 'GET',
                 success: function(result) {
                     toastr.remove();
                     toastr.success("Your processing has been completed.");
-                    table.ajax.reload();
                 }
             });
         });

@@ -23,9 +23,11 @@ class UpdateCompanyAccount extends FormRequest
      */
     public function rules()
     {
+        $id = $this->route('company_account');
         return [
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required'],
+            'email' => 'unique:users,email,' . $id,
         ];
     }
 }

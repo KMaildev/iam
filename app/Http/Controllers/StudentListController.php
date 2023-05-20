@@ -13,9 +13,8 @@ class StudentListController extends Controller
     public function index(Request $request)
     {
         $data = User::with('language_level')
-            ->where('account_type', 'student');
-            // ->where('select_status', NULL)
-            // ->orderBy('id', 'DESC');
+            ->where('account_type', 'student')
+            ->where('companie_id', NULL);
 
         return DataTables::of($data)
 
@@ -50,14 +49,10 @@ class StudentListController extends Controller
 
     public function companyStudents(Request $request)
     {
-        $data = UserList::with('language_level', 'company_user_lists_table')
-            ->where('account_type', 'student')
+        $company_id = auth()->user()->id;
 
-            ->whereHas('company_user_lists_table', function ($q) {
-                $q->where('user_id', auth()->user()->id);
-            })
-
-            ->orderBy('id', 'DESC');
+        $data = User::with('language_level')
+            ->where('companie_id', $company_id);
 
         return DataTables::of($data)
 
@@ -74,14 +69,13 @@ class StudentListController extends Controller
             })
 
             ->addColumn('action', function ($each) {
-                $company_user_list_id = $each->company_user_lists_table ? $each->company_user_lists_table->id : '0';
                 $action =
                     '<button class="btn btn-danger btn-sm" type="button" 
-                        id="removeToMyStudent"
-                        data-id="' . $company_user_list_id . '">
-                        Remove
-                    </button>
-                ';
+                    id="removeMyStudent"
+                    data-id="' . $each->id . '">
+                    Remove
+                </button>
+            ';
                 return $action;
             })
 

@@ -26,12 +26,14 @@ class CompanyAccountController extends Controller
             $user->name = $request->name;
             $user->address = $request->address;
             $user->phone_no = $request->phone;
+            $user->email = $request->email;
             $user->update();
 
             $user = Company::where('user_id', $id)->first();
             $user->name = $request->name;
             $user->address = $request->address;
             $user->phone = $request->phone;
+            $user->email = $request->email;
             $user->update();
             return redirect()->back()->with('success', 'Your processing has been completed.');
         } else {

@@ -17,28 +17,24 @@
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="avatar">
                                         <span class="avatar-initial bg-label-primary rounded-circle">
-                                            {{-- @if ($user_list->select_status == 'selected')
-                                                <i class="fa fa-square-check fa-3x" style="color: white;"></i>
+                                            @if ($user->first_status == 'selected')
+                                                <br>
+                                                <i class="fa fa-square-check fa-2x" style="color: white;"></i>
+                                                <br>
+                                                <span style="color: white;">
+                                                    <i class="fa-solid fa-calendar"></i>
+                                                    {{ $user->first_select_date ?? '' }}
+                                                </span>
                                             @else
-                                                <i class="fa-solid fa-square-xmark fa-3x" style="color: white;"></i>
-                                            @endif --}}
+                                                <br>
+                                                <i class="fa-solid fa-square-xmark fa-2x" style="color: white;"></i>
+                                                <br>
+                                                <span style="color: white;">
+                                                    <i class="fa-solid fa-calendar"></i>
+                                                    Pending
+                                                </span>
+                                            @endif
                                         </span>
-                                    </div>
-                                    <div class="card-info">
-                                        <h5 class="card-title" style="font-size: 20px; color: white;">
-                                            {{-- @if ($user_list->select_status == 'selected')
-                                                Selected
-                                            @else
-                                                Pending
-                                            @endif --}}
-                                        </h5>
-                                        <small class="" style="font-size: 16px; color:white; font-weight:bold;">
-                                            {{-- @if ($user_list->company_user_lists_table->choose_date ?? '')
-                                                {{ $user_list->company_user_lists_table->choose_date ?? '' }}
-                                            @else
-                                                Pending
-                                            @endif --}}
-                                        </small>
                                     </div>
                                 </div>
                             </div>
@@ -58,28 +54,24 @@
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="avatar">
                                         <span class="avatar-initial bg-label-primary rounded-circle">
-                                            {{-- @if ($user_list->second_status == 'selected')
-                                                <i class="fa fa-square-check fa-3x" style="color: white;"></i>
+                                            @if ($user->first_status == 'selected')
+                                                <br>
+                                                <i class="fa fa-square-check fa-2x" style="color: white;"></i>
+                                                <br>
+                                                <span style="color: white;">
+                                                    <i class="fa-solid fa-calendar"></i>
+                                                    {{ $user->first_select_date ?? '' }}
+                                                </span>
                                             @else
-                                                <i class="fa-solid fa-square-xmark fa-3x" style="color: white;"></i>
-                                            @endif --}}
-                                        </span>
-                                    </div>
-                                    <div class="card-info">
-                                        <h5 class="card-title" style="font-size: 20px; color: white;">
-                                            {{-- @if ($user_list->second_status == 'selected')
-                                                Selected
-                                            @else
-                                                Pending
-                                            @endif --}}
-                                        </h5>
-                                        <small class="" style="font-size: 16px; color:white; font-weight:bold;">
-                                            {{-- @if ($user_list->second_status ?? '')
-                                                {{ $user_list->second_date ?? '' }}
-                                            @else
-                                                Pending
+                                                <br>
+                                                <i class="fa-solid fa-square-xmark fa-2x" style="color: white;"></i>
+                                                <br>
+                                                <span style="color: white;">
+                                                    <i class="fa-solid fa-calendar"></i>
+                                                    Pending
+                                                </span>
                                             @endif
-                                        </small> --}}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -99,28 +91,24 @@
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="avatar">
                                         <span class="avatar-initial bg-label-primary rounded-circle">
-                                            {{-- @if ($user_list->third_status == 'selected')
-                                                <i class="fa fa-square-check fa-3x" style="color: white;"></i>
+                                            @if ($user->third_status == 'selected')
+                                                <br>
+                                                <i class="fa fa-square-check fa-2x" style="color: white;"></i>
+                                                <br>
+                                                <span style="color: white;">
+                                                    <i class="fa-solid fa-calendar"></i>
+                                                    {{ $user->third_select_date ?? '' }}
+                                                </span>
                                             @else
-                                                <i class="fa-solid fa-square-xmark fa-3x" style="color: white;"></i>
-                                            @endif --}}
+                                                <br>
+                                                <i class="fa-solid fa-square-xmark fa-2x" style="color: white;"></i>
+                                                <br>
+                                                <span style="color: white;">
+                                                    <i class="fa-solid fa-calendar"></i>
+                                                    Pending
+                                                </span>
+                                            @endif
                                         </span>
-                                    </div>
-                                    <div class="card-info">
-                                        <h5 class="card-title" style="font-size: 20px; color: white;">
-                                            {{-- @if ($user_list->third_status == 'selected')
-                                                Selected
-                                            @else
-                                                Pending
-                                            @endif --}}
-                                        </h5>
-                                        <small class="" style="font-size: 16px; color:white; font-weight:bold;">
-                                            {{-- @if ($user_list->third_status ?? '')
-                                                {{ $user_list->third_date ?? '' }}
-                                            @else
-                                                Pending
-                                            @endif --}}
-                                        </small>
                                     </div>
                                 </div>
                             </div>
