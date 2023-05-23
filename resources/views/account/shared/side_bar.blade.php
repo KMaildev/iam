@@ -1,4 +1,4 @@
-<div class="col-md-3 col-sm-3 col-lg-3">
+<div class="col-md-2 col-sm-2 col-lg-2">
     <div class="list-group">
 
         @if (Auth::user()->account_type == 'student')

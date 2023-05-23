@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <div class="container d-flex justify-content-center">
+    <div class="container-fluid d-flex justify-content-center">
         <div class="col-md-12">
             <div class="row py-5">
                 @include('account.shared.side_bar')
@@ -57,7 +57,7 @@
 
                                                                 <td>
                                                                     @if ($value->file_path)
-                                                                        <img src="{{ $value->file_path }}"
+                                                                        <img src="{{ Storage::url($value->file_path) }}"
                                                                             alt=""
                                                                             style="width: 100px; height: 100px; background-position: center; background-size: contain, cover;"
                                                                             data-enlargeable>

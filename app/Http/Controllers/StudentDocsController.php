@@ -21,9 +21,8 @@ class StudentDocsController extends Controller
         if ($request->hasFile('files')) {
             foreach ($request->file('files') as $key => $file) {
                 $path = $file->store('public/student_docs');
-                $file_name = explode("/", $path);
-                $file_name = $file_name[2];
-                $insert[$key]['file_path'] = 'http://localhost/projects/iammyanmar/storage/student_docs/' . $file_name ?? '';
+                $original_name = $file->getClientOriginalName();
+                $insert[$key]['file_path'] = $path;
                 $insert[$key]['user_id'] = auth()->user()->id ?? 0;
                 $insert[$key]['upload_date'] = date('Y-m-d');
                 $insert[$key]['created_at'] =  date('Y-m-d H:i:s');

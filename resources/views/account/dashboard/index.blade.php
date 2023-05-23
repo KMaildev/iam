@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <div class="container d-flex justify-content-center">
+    <div class="container-fluid ">
         <div class="col-md-12">
             <div class="row py-5">
                 @include('account.shared.side_bar')

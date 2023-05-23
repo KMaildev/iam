@@ -7,6 +7,7 @@ use App\Models\CompanyUserList;
 use App\Models\User;
 use App\Models\UserList;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Yajra\Datatables\Datatables;
 
 class StudentListController extends Controller
@@ -14,8 +15,7 @@ class StudentListController extends Controller
     public function index(Request $request)
     {
         $data = User::with('language_level')
-            ->where('account_type', 'student')
-            ->where('companie_id', NULL);
+            ->where('account_type', 'student');
 
         return DataTables::of($data)
 
@@ -31,18 +31,41 @@ class StudentListController extends Controller
                 });
             })
 
+            ->addColumn('photo', function ($each) {
+                $photo = '';
+                if ($each->photo) {
+                    $photo =
+                        '<img src="' .Storage::url($each->photo). '" style="width: 50px; height: 50px; background-position: center; background-size: contain, cover;" data-enlargeable>
+                    ';
+                }
+                
+                return $photo;
+            })
+
             ->addColumn('action', function ($each) {
-                $action =
-                    '<button class="btn btn-danger btn-sm" type="button" 
-                        id="addToMyStudent"
-                        data-id="' . $each->id . '">
-                        Select
-                    </button>
-                ';
+                if ($each->companie_id == null) {
+                    $action =
+                        '
+                            <button class="btn btn-danger btn-sm" type="button" 
+                                id="addToMyStudent"
+                                data-id="' . $each->id . '">
+                                Select
+                            </button>
+                        ';
+                }else{
+                    $action =
+                        '
+                            <button type="button" class="btn btn-success btn-sm">
+                                <i class="fa-solid fa-check-double"></i>
+                                Done
+                            </button>
+                        ';
+                }
+               
                 return $action;
             })
 
-            ->rawColumns(['language_level', 'action'])
+            ->rawColumns(['language_level', 'photo', 'action'])
             ->make(true);
     }
 
@@ -71,6 +94,17 @@ class StudentListController extends Controller
                 });
             })
 
+            ->addColumn('photo', function ($each) {
+                $photo = '';
+                if ($each->photo) {
+                    $photo =
+                        '<img src="' .Storage::url($each->photo). '" style="width: 50px; height: 50px; background-position: center; background-size: contain, cover;" data-enlargeable>
+                    ';
+                }
+                
+                return $photo;
+            })
+
             ->addColumn('action', function ($each) {
                 $action =
                     '<button class="btn btn-danger btn-sm" type="button" 
@@ -82,7 +116,7 @@ class StudentListController extends Controller
                 return $action;
             })
 
-            ->rawColumns(['language_level', 'action'])
+            ->rawColumns(['language_level', 'photo', 'action'])
             ->make(true);
     }
 }

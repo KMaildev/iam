@@ -9,7 +9,8 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}" autocomplete="off" id="create-form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('register') }}" autocomplete="off" id="create-form"
+                            enctype="multipart/form-data">
                             @csrf
 
                             <h6>
@@ -40,8 +41,7 @@
 
 
                             <div class="row mb-3" id="CompanyName">
-                                <label for="name"
-                                    class="col-md-4 col-form-label text-md-end">
+                                <label for="name" class="col-md-4 col-form-label text-md-end">
                                     Company Name
                                 </label>
 
@@ -60,13 +60,11 @@
 
                             <div class="row mb-3">
 
-                                <label for="name"
-                                    class="col-md-4 col-form-label text-md-end" id="Name">
+                                <label for="name" class="col-md-4 col-form-label text-md-end" id="Name">
                                     Name
                                 </label>
 
-                                <label for="name"
-                                    class="col-md-4 col-form-label text-md-end" id="ContractPerson">
+                                <label for="name" class="col-md-4 col-form-label text-md-end" id="ContractPerson">
                                     Contract Person
                                 </label>
 
@@ -213,9 +211,8 @@
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
-                                        class="form-control @error('education') is-invalid @enderror"
-                                        name="education" value="{{ old('education') }}"
-                                        autocomplete="off" autofocus>
+                                        class="form-control @error('education') is-invalid @enderror" name="education"
+                                        value="{{ old('education') }}" autocomplete="off" autofocus>
 
                                     @error('education')
                                         <span class="invalid-feedback" role="alert">
@@ -235,8 +232,8 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                         class="form-control @error('foreign_experience') is-invalid @enderror"
-                                        name="foreign_experience" value="{{ old('foreign_experience') }}" autocomplete="off"
-                                        autofocus>
+                                        name="foreign_experience" value="{{ old('foreign_experience') }}"
+                                        autocomplete="off" autofocus>
                                     @error('foreign_experience')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -254,8 +251,8 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                         class="form-control @error('other_qualification') is-invalid @enderror"
-                                        name="other_qualification" value="{{ old('other_qualification') }}" autocomplete="off"
-                                        autofocus>
+                                        name="other_qualification" value="{{ old('other_qualification') }}"
+                                        autocomplete="off" autofocus>
                                     @error('other_qualification')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -315,7 +312,7 @@
                                 </div>
                             </div>
 
-                            
+
 
                             <div class="row mb-3" id="WearingGlasses">
                                 <label for="name" class="col-md-4 col-form-label text-md-end">
@@ -324,16 +321,16 @@
 
                                 <div class="col-md-6">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="wearing_glasses_or_not" id="No"
-                                            value="No" checked>
+                                        <input class="form-check-input" type="radio" name="wearing_glasses_or_not"
+                                            id="No" value="No" checked>
                                         <label class="form-check-label" for="No">
                                             No
                                         </label>
                                     </div>
 
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="wearing_glasses_or_not" id="Yes"
-                                            value="Yes">
+                                        <input class="form-check-input" type="radio" name="wearing_glasses_or_not"
+                                            id="Yes" value="Yes">
                                         <label class="form-check-label" for="Yes">
                                             Yes
                                         </label>
@@ -366,13 +363,14 @@
 
                             <div class="row mb-3" id="Nationality">
                                 <label for="name" class="col-md-4 col-form-label text-md-end">
-                                    Nationality 
+                                    Nationality
                                 </label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
-                                        class="form-control @error('nationality') is-invalid @enderror" name="nationality"
-                                        value="{{ old('nationality') }}" autocomplete="off" autofocus>
+                                        class="form-control @error('nationality') is-invalid @enderror"
+                                        name="nationality" value="{{ old('nationality') }}" autocomplete="off"
+                                        autofocus>
                                     @error('nationality')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -389,9 +387,8 @@
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
-                                        class="form-control @error('religion') is-invalid @enderror"
-                                        name="religion" value="{{ old('religion') }}" autocomplete="off"
-                                        autofocus>
+                                        class="form-control @error('religion') is-invalid @enderror" name="religion"
+                                        value="{{ old('religion') }}" autocomplete="off" autofocus>
 
                                     @error('religion')
                                         <span class="invalid-feedback" role="alert">
@@ -408,9 +405,8 @@
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
-                                        class="form-control @error('address') is-invalid @enderror"
-                                        name="address" value="{{ old('address') }}" autocomplete="off"
-                                        autofocus>
+                                        class="form-control @error('address') is-invalid @enderror" name="address"
+                                        value="{{ old('address') }}" autocomplete="off" autofocus>
 
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
@@ -427,9 +423,8 @@
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
-                                        class="form-control @error('phone_no') is-invalid @enderror"
-                                        name="phone_no" value="{{ old('phone_no') }}" autocomplete="off"
-                                        autofocus>
+                                        class="form-control @error('phone_no') is-invalid @enderror" name="phone_no"
+                                        value="{{ old('phone_no') }}" autocomplete="off" autofocus>
 
                                     @error('phone_no')
                                         <span class="invalid-feedback" role="alert">
@@ -457,15 +452,15 @@
                             </div>
 
                             <div class="row mb-3" id="Facebook">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">
+                                <label for="email" class="col-md-4 col-form-label text-md-end">
                                     Facebook Link
                                 </label>
 
                                 <div class="col-md-6">
                                     <input type="text"
-                                        class="form-control @error('facebook_link') is-invalid @enderror" name="facebook_link"
-                                        value="{{ old('facebook_link') }}" autocomplete="facebook_link">
+                                        class="form-control @error('facebook_link') is-invalid @enderror"
+                                        name="facebook_link" value="{{ old('facebook_link') }}"
+                                        autocomplete="facebook_link">
 
                                     @error('facebook_link')
                                         <span class="invalid-feedback" role="alert">
@@ -476,15 +471,15 @@
                             </div>
 
                             <div class="row mb-3" id="Instagram">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">
+                                <label for="email" class="col-md-4 col-form-label text-md-end">
                                     Instagram Link
                                 </label>
 
                                 <div class="col-md-6">
                                     <input type="text"
-                                        class="form-control @error('instagram_link') is-invalid @enderror" name="instagram_link"
-                                        value="{{ old('instagram_link') }}" autocomplete="instagram_link">
+                                        class="form-control @error('instagram_link') is-invalid @enderror"
+                                        name="instagram_link" value="{{ old('instagram_link') }}"
+                                        autocomplete="instagram_link">
 
                                     @error('instagram_link')
                                         <span class="invalid-feedback" role="alert">
@@ -495,15 +490,13 @@
                             </div>
 
                             <div class="row mb-3" id="Website">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">
+                                <label for="email" class="col-md-4 col-form-label text-md-end">
                                     Website URL
                                 </label>
 
                                 <div class="col-md-6">
-                                    <input type="text"
-                                        class="form-control @error('website') is-invalid @enderror" name="website"
-                                        value="{{ old('website') }}" autocomplete="website">
+                                    <input type="text" class="form-control @error('website') is-invalid @enderror"
+                                        name="website" value="{{ old('website') }}" autocomplete="website">
 
                                     @error('website')
                                         <span class="invalid-feedback" role="alert">
@@ -514,15 +507,13 @@
                             </div>
 
                             <div class="row mb-3" id="Other">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">
+                                <label for="email" class="col-md-4 col-form-label text-md-end">
                                     Other
                                 </label>
 
                                 <div class="col-md-6">
-                                    <input type="text"
-                                        class="form-control @error('other') is-invalid @enderror" name="other"
-                                        value="{{ old('other') }}" autocomplete="other">
+                                    <input type="text" class="form-control @error('other') is-invalid @enderror"
+                                        name="other" value="{{ old('other') }}" autocomplete="other">
 
                                     @error('other')
                                         <span class="invalid-feedback" role="alert">
@@ -571,8 +562,7 @@
                                 </label>
 
                                 <div class="col-md-6">
-                                    <input type="file"
-                                        class="@error('photo') is-invalid @enderror" name="photo"
+                                    <input type="file" class="@error('photo') is-invalid @enderror" name="photo"
                                         autocomplete="off" accept=".jpg, .jpeg, .png">
                                     @error('photo')
                                         <span class="invalid-feedback" role="alert">
@@ -589,13 +579,13 @@
                                 </label>
                                 <div class="col-md-6">
                                     <input class="@error('nrc_front') is-invalid @enderror" type="file"
-                                        name="nrc_front" value="{{ old('nrc_front') }}" accept=".jpg, .jpeg, .png"/>
+                                        name="nrc_front" value="{{ old('nrc_front') }}" accept=".jpg, .jpeg, .png" />
                                     @error('nrc_front')
                                         <div class="invalid-feedback"> {{ $message }} </div>
                                     @enderror
                                 </div>
                             </div>
-    
+
                             <div class="mb-3 row" id="NRCBack">
                                 <label for="html5-text-input" class="col-md-4 col-form-label text-md-end">
                                     NRC Back Photo
@@ -615,7 +605,8 @@
                                 </label>
                                 <div class="col-md-6">
                                     <input class="@error('members_list_file') is-invalid @enderror" type="file"
-                                        name="members_list_file" value="{{ old('members_list_file') }}" accept=".jpg, .jpeg, .png" />
+                                        name="members_list_file" value="{{ old('members_list_file') }}"
+                                        accept=".jpg, .jpeg, .png" />
                                     @error('members_list_file')
                                         <div class="invalid-feedback"> {{ $message }} </div>
                                     @enderror
@@ -628,7 +619,8 @@
                                 </label>
                                 <div class="col-md-6">
                                     <input class="@error('japan_certificate') is-invalid @enderror" type="file"
-                                        name="japan_certificate" value="{{ old('japan_certificate') }}" accept=".jpg, .jpeg, .png" />
+                                        name="japan_certificate" value="{{ old('japan_certificate') }}"
+                                        accept=".jpg, .jpeg, .png" />
                                     @error('japan_certificate')
                                         <div class="invalid-feedback"> {{ $message }} </div>
                                     @enderror
@@ -638,13 +630,12 @@
 
                             <div class="mb-3 row" id="ForeignTickets">
                                 <label for="html5-text-input" class="col-md-4 col-form-label text-md-end">
-                                    Foreign tickets 
+                                    Foreign tickets
                                     (ပြည်ပလက်မှတ်များ)
                                 </label>
                                 <div class="col-md-6">
-                                    <input class="@error('files') is-invalid @enderror"
-                                    type="file" name="files[]" multiple value="{{ old('files') }}"
-                                     accept=".jpg, .jpeg, .png" />
+                                    <input class="@error('files') is-invalid @enderror" type="file" name="files[]"
+                                        multiple value="{{ old('files') }}" accept=".jpg, .jpeg, .png" />
                                     @error('files')
                                         <div class="invalid-feedback"> {{ $message }} </div>
                                     @enderror
@@ -706,7 +697,8 @@
                 $("#Other").show();
 
                 $("#ContractPerson").show();
-                
+                $("#CompanyName").show();
+
             } else {
                 $("#DateOfBirth").show();
                 $("#Age").show();
@@ -738,13 +730,18 @@
                 $("#Other").hide();
 
                 $("#ContractPerson").hide();
+                $("#CompanyName").hide();
 
             }
         });
 
-        $("#ContractPerson").hide();
 
-        function birthDateAgeCalc(object){
+        window.onload = (event) => {
+            $("#CompanyName").hide();
+            $("#ContractPerson").hide();
+        };
+
+        function birthDateAgeCalc(object) {
             var dob = object.value;
             const dobArray = dob.split("-");
             const year = dobArray[0];
@@ -753,6 +750,5 @@
             const a = Math.abs(age);
             document.getElementById('ageNumber').value = a;
         }
-        
     </script>
 @endsection

@@ -1,11 +1,11 @@
 @extends('layouts.main')
 @section('content')
-    <div class="container d-flex justify-content-center">
+    <div class="container-fluid">
         <div class="col-md-12">
             <div class="row py-5">
                 @include('account.shared.side_bar')
 
-                <div class="col-md-9 col-sm-9 col-lg-9">
+                <div class="col-md-10 col-sm-10 col-lg-10">
                     <div class="card">
                         <div class="card-header">
                             Student Lists
@@ -84,11 +84,7 @@
                                                     </th>
 
                                                     <th class="text-white text-center" style="width: 100px;">
-                                                        Address
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Phone No.
+                                                        Photo
                                                     </th>
 
                                                     <th class="text-white text-center" style="width: 100px;">
@@ -113,90 +109,10 @@
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td style="display: none"></td>
                                                     <td style="display: none"></td>
                                                 </tr>
                                             </thead>
-
-                                            <tfoot>
-                                                <tr style="background-color: #903731;">
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Name
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Date of Birth
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Age
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Gender
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Height
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Weight
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Japanese Level
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Education
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Foreign Experience
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Other Qualification
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Marital Status
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Blood Type
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Wearing Glasses/ Not
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Birth Place
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Nationality
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Religion
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Address
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                        Phone No.
-                                                    </th>
-
-                                                    <th class="text-white text-center" style="width: 100px;">
-                                                    </th>
-                                                </tr>
-                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>
@@ -308,12 +224,8 @@
                         name: 'religion',
                     },
                     {
-                        data: 'address',
-                        name: 'address',
-                    },
-                    {
-                        data: 'phone_no',
-                        name: 'phone_no',
+                        data: 'photo',
+                        name: 'photo',
                     },
                     {
                         data: 'action',

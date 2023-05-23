@@ -95,9 +95,38 @@
     {{-- <script src="{{ asset('assets/datatables/dataTables.bootstrap4fd53.js?v4.0.1') }}"></script> --}}
 
     {{-- <script src="{{ asset('assets/datatables/datatables.minfd53.js?v4.0.1') }}"></script> --}}
-    <script src="{{ asset('assets/datatables/tables/datatable.minfd53.js') }}"></script> 
+    <script src="{{ asset('assets/datatables/tables/datatable.minfd53.js') }}"></script>
 
     @yield('script')
 </body>
+<script>
+      $('img[data-enlargeable]').addClass('img-enlargeable').click(function() {
+        var src = $(this).attr('src');
+        var modal;
 
+        function removeModal() {
+            modal.remove();
+            $('body').off('keyup.modal-close');
+        }
+        modal = $('<div>').css({
+            background: 'RGBA(0,0,0,.5) url(' + src + ') no-repeat center',
+            backgroundSize: 'contain',
+            width: '100%',
+            height: '100%',
+            position: 'fixed',
+            zIndex: '10000',
+            top: '0',
+            left: '0',
+            cursor: 'zoom-out'
+        }).click(function() {
+            removeModal();
+        }).appendTo('body');
+        //handling ESC
+        $('body').on('keyup.modal-close', function(e) {
+            if (e.key === 'Escape') {
+                removeModal();
+            }
+        });
+    });
+</script>
 </html>

@@ -1,4 +1,4 @@
-<div class="col-md-9 col-sm-12 col-lg-9">
+<div class="col-md-10 col-sm-12 col-lg-10">
     <div class="card">
         <div class="card-header">
             Student Dashboard

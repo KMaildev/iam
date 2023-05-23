@@ -21,7 +21,6 @@ class StudentAccountController extends Controller
     {
         if (auth()->user()->id == $id) {
 
-
             if ($request->hasFile('photo')) {
                 $photo = $request->file('photo');
                 $path = $photo->store('public/photo');
@@ -73,11 +72,11 @@ class StudentAccountController extends Controller
             $user->address = $request->address;
             $user->phone_no = $request->phone_no;
 
-            $user->photo = 'https://iam-myanmar.com/storage/photo/' . $photo_name ?? $user->photo;
-            $user->nrc_photo_front = 'https://iam-myanmar.com/storage/photo/' . $nrc_front_path ?? $user->nrc_photo_front;
-            $user->nrc_photo_back = 'https://iam-myanmar.com/storage/photo/' . $nrc_back_path ?? $user->nrc_photo_back;
-            $user->household_members = 'https://iam-myanmar.com/storage/photo/' . $members_list_file_path ?? $user->household_members;
-            $user->japan_certificate = 'https://iam-myanmar.com/storage/photo/' . $japan_certificate_path ?? $user->japan_certificate;
+            $user->photo = $path ?? $user->photo;
+            $user->nrc_photo_front = $nrc_front_path ?? $user->nrc_photo_front;
+            $user->nrc_photo_back = $nrc_back_path ?? $user->nrc_photo_back;
+            $user->household_members = $members_list_file_path ?? $user->household_members;
+            $user->japan_certificate = $japan_certificate_path ?? $user->japan_certificate;
 
             $user->update();
             return redirect()->back()->with('success', 'Your processing has been completed.');
