@@ -9,11 +9,16 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}" autocomplete="off" id="create-form">
+                        <form method="POST" action="{{ route('register') }}" autocomplete="off" id="create-form" enctype="multipart/form-data">
                             @csrf
 
+                            <h6>
+                                Fill your information
+                            </h6>
+                            <hr>
+
                             <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">
+                                <label for="account_type" class="col-md-4 col-form-label text-md-end">
                                     Types of Account
                                 </label>
                                 <div class="col-md-6">
@@ -33,9 +38,37 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
+
+                            <div class="row mb-3" id="CompanyName">
                                 <label for="name"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">
+                                    Company Name
+                                </label>
+
+                                <div class="col-md-6">
+                                    <input id="name" type="text"
+                                        class="form-control @error('company_name') is-invalid @enderror" name="company_name"
+                                        value="{{ old('company_name') }}" autocomplete="off" autofocus>
+
+                                    @error('company_name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+
+                                <label for="name"
+                                    class="col-md-4 col-form-label text-md-end" id="Name">
+                                    Name
+                                </label>
+
+                                <label for="name"
+                                    class="col-md-4 col-form-label text-md-end" id="ContractPerson">
+                                    Contract Person
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -51,12 +84,12 @@
                             </div>
 
                             <div class="row mb-3" id="DateOfBirth">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">
+                                <label for="date" class="col-md-4 col-form-label text-md-end">
                                     Date of Birth
                                 </label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="date"
+                                    <input onchange="birthDateAgeCalc(this);" type="date"
                                         class="form-control @error('date_of_birth') is-invalid @enderror"
                                         name="date_of_birth" value="{{ old('date_of_birth') }}" autocomplete="off">
                                     @error('date_of_birth')
@@ -68,13 +101,13 @@
                             </div>
 
                             <div class="row mb-3" id="Age">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">
+                                <label for="age" class="col-md-4 col-form-label text-md-end">
                                     Age
                                 </label>
                                 <div class="col-md-6">
                                     <input min="1" max="100" type="number"
                                         class="form-control @error('age') is-invalid @enderror" name="age"
-                                        value="{{ old('age') }}" autocomplete="off">
+                                        value="{{ old('age') }}" autocomplete="off" id="ageNumber">
                                     @error('age')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -84,7 +117,7 @@
                             </div>
 
                             <div class="row mb-3" id="Gender">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">
+                                <label for="gender" class="col-md-4 col-form-label text-md-end">
                                     Gender
                                 </label>
 
@@ -238,9 +271,14 @@
                                 </label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text"
-                                        class="form-control @error('marital_status') is-invalid @enderror" name="marital_status"
-                                        value="{{ old('marital_status') }}" autocomplete="off" autofocus>
+                                    <select class="form-control" name="marital_status">
+                                        <option value="Single">
+                                            Single
+                                        </option>
+                                        <option value="Married">
+                                            Married
+                                        </option>
+                                    </select>
                                     @error('marital_status')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -255,9 +293,20 @@
                                 </label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text"
-                                        class="form-control @error('blood_type') is-invalid @enderror" name="blood_type"
-                                        value="{{ old('blood_type') }}" autocomplete="off" autofocus>
+                                    <select class="form-control" name="blood_type">
+                                        <option value="O">
+                                            O
+                                        </option>
+                                        <option value="A">
+                                            A
+                                        </option>
+                                        <option value="B">
+                                            B
+                                        </option>
+                                        <option value="AB">
+                                            AB
+                                        </option>
+                                    </select>
                                     @error('blood_type')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -274,9 +323,22 @@
                                 </label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text"
-                                        class="form-control @error('wearing_glasses_or_not') is-invalid @enderror" name="wearing_glasses_or_not"
-                                        value="{{ old('wearing_glasses_or_not') }}" autocomplete="off" autofocus>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="wearing_glasses_or_not" id="No"
+                                            value="No" checked>
+                                        <label class="form-check-label" for="No">
+                                            No
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="wearing_glasses_or_not" id="Yes"
+                                            value="Yes">
+                                        <label class="form-check-label" for="Yes">
+                                            Yes
+                                        </label>
+                                    </div>
+
                                     @error('wearing_glasses_or_not')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -394,7 +456,83 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
+                            <div class="row mb-3" id="Facebook">
+                                <label for="email"
+                                    class="col-md-4 col-form-label text-md-end">
+                                    Facebook Link
+                                </label>
+
+                                <div class="col-md-6">
+                                    <input type="text"
+                                        class="form-control @error('facebook_link') is-invalid @enderror" name="facebook_link"
+                                        value="{{ old('facebook_link') }}" autocomplete="facebook_link">
+
+                                    @error('facebook_link')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3" id="Instagram">
+                                <label for="email"
+                                    class="col-md-4 col-form-label text-md-end">
+                                    Instagram Link
+                                </label>
+
+                                <div class="col-md-6">
+                                    <input type="text"
+                                        class="form-control @error('instagram_link') is-invalid @enderror" name="instagram_link"
+                                        value="{{ old('instagram_link') }}" autocomplete="instagram_link">
+
+                                    @error('instagram_link')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3" id="Website">
+                                <label for="email"
+                                    class="col-md-4 col-form-label text-md-end">
+                                    Website URL
+                                </label>
+
+                                <div class="col-md-6">
+                                    <input type="text"
+                                        class="form-control @error('website') is-invalid @enderror" name="website"
+                                        value="{{ old('website') }}" autocomplete="website">
+
+                                    @error('website')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3" id="Other">
+                                <label for="email"
+                                    class="col-md-4 col-form-label text-md-end">
+                                    Other
+                                </label>
+
+                                <div class="col-md-6">
+                                    <input type="text"
+                                        class="form-control @error('other') is-invalid @enderror" name="other"
+                                        value="{{ old('other') }}" autocomplete="other">
+
+                                    @error('other')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3" id="Password">
                                 <label for="password"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
@@ -411,13 +549,105 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
+                            <div class="row mb-3" id="PasswordConfirm">
                                 <label for="password-confirm"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" autocomplete="new-password">
+                                </div>
+                            </div>
+
+
+                            <h6 id="UploadPhoto">
+                                Upload Photo
+                            </h6>
+                            <hr>
+
+                            <div class="row mb-3" id="Photo">
+                                <label for="name" class="col-md-4 col-form-label text-md-end">
+                                    Photo
+                                </label>
+
+                                <div class="col-md-6">
+                                    <input type="file"
+                                        class="@error('photo') is-invalid @enderror" name="photo"
+                                        autocomplete="off" accept=".jpg, .jpeg, .png">
+                                    @error('photo')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+
+                            <div class="mb-3 row" id="NRCFront">
+                                <label for="html5-text-input" class="col-md-4 col-form-label text-md-end">
+                                    NRC Front Photo
+                                </label>
+                                <div class="col-md-6">
+                                    <input class="@error('nrc_front') is-invalid @enderror" type="file"
+                                        name="nrc_front" value="{{ old('nrc_front') }}" accept=".jpg, .jpeg, .png"/>
+                                    @error('nrc_front')
+                                        <div class="invalid-feedback"> {{ $message }} </div>
+                                    @enderror
+                                </div>
+                            </div>
+    
+                            <div class="mb-3 row" id="NRCBack">
+                                <label for="html5-text-input" class="col-md-4 col-form-label text-md-end">
+                                    NRC Back Photo
+                                </label>
+                                <div class="col-md-6">
+                                    <input class="@error('nrc_back') is-invalid @enderror" type="file"
+                                        name="nrc_back" value="{{ old('nrc_back') }}" accept=".jpg, .jpeg, .png" />
+                                    @error('nrc_back')
+                                        <div class="invalid-feedback"> {{ $message }} </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row" id="Household">
+                                <label for="html5-text-input" class="col-md-4 col-form-label text-md-end">
+                                    Household Members List
+                                </label>
+                                <div class="col-md-6">
+                                    <input class="@error('members_list_file') is-invalid @enderror" type="file"
+                                        name="members_list_file" value="{{ old('members_list_file') }}" accept=".jpg, .jpeg, .png" />
+                                    @error('members_list_file')
+                                        <div class="invalid-feedback"> {{ $message }} </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row" id="JapanCertificate">
+                                <label for="html5-text-input" class="col-md-4 col-form-label text-md-end">
+                                    Japan Certificate
+                                </label>
+                                <div class="col-md-6">
+                                    <input class="@error('japan_certificate') is-invalid @enderror" type="file"
+                                        name="japan_certificate" value="{{ old('japan_certificate') }}" accept=".jpg, .jpeg, .png" />
+                                    @error('japan_certificate')
+                                        <div class="invalid-feedback"> {{ $message }} </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+
+                            <div class="mb-3 row" id="ForeignTickets">
+                                <label for="html5-text-input" class="col-md-4 col-form-label text-md-end">
+                                    Foreign tickets 
+                                    (ပြည်ပလက်မှတ်များ)
+                                </label>
+                                <div class="col-md-6">
+                                    <input class="@error('files') is-invalid @enderror"
+                                    type="file" name="files[]" multiple value="{{ old('files') }}"
+                                     accept=".jpg, .jpeg, .png" />
+                                    @error('files')
+                                        <div class="invalid-feedback"> {{ $message }} </div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -459,6 +689,24 @@
                 $("#BirthPlace").hide();
                 $("#Nationality").hide();
                 $("#Religion").hide();
+                $("#Photo").hide();
+                $("#NRCFront").hide();
+                $("#NRCBack").hide();
+                $("#Household").hide();
+                $("#JapanCertificate").hide();
+                $("#ForeignTickets").hide();
+                $("#UploadPhoto").hide();
+                $("#Name").hide();
+                $("#Password").hide();
+                $("#PasswordConfirm").hide();
+
+                $("#Facebook").show();
+                $("#Instagram").show();
+                $("#Website").show();
+                $("#Other").show();
+
+                $("#ContractPerson").show();
+                
             } else {
                 $("#DateOfBirth").show();
                 $("#Age").show();
@@ -475,7 +723,36 @@
                 $("#BirthPlace").show();
                 $("#Nationality").show();
                 $("#Religion").show();
+                $("#Photo").show();
+                $("#NRCFront").show();
+                $("#NRCBack").show();
+                $("#Household").show();
+                $("#JapanCertificate").show();
+                $("#ForeignTickets").show();
+                $("#UploadPhoto").show();
+                $("#Name").show();
+
+                $("#Facebook").hide();
+                $("#Instagram").hide();
+                $("#Website").hide();
+                $("#Other").hide();
+
+                $("#ContractPerson").hide();
+
             }
         });
+
+        $("#ContractPerson").hide();
+
+        function birthDateAgeCalc(object){
+            var dob = object.value;
+            const dobArray = dob.split("-");
+            const year = dobArray[0];
+            const current_date = new Date().getFullYear();
+            const age = year - current_date;
+            const a = Math.abs(age);
+            document.getElementById('ageNumber').value = a;
+        }
+        
     </script>
 @endsection

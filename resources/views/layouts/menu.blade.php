@@ -81,8 +81,10 @@
                     <div class="row header-nav-col-row">
                         <div class="col-sm-auto align-self-center">
                             <a class="menuzord-brand site-brand" href="{{ route('home') }}">
+                                
                                 <img class="logo-default logo-1x" src="{{ asset('data/logo.jpg') }}" alt="Logo"
-                                    style="width:200px;height:100%;">
+                                    style="width: 180px; height: auto;">
+                                    
                                 <img class="logo-default logo-2x retina" src="{{ asset('data/logo.jpg') }}"
                                     alt="Logo">
                             </a>

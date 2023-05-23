@@ -28,7 +28,7 @@
                                                 Welcome to I Am Myanmar Co.,Ltd
                                             </p>
                                             <h2 class="title">
-                                                Company Profile
+                                                About Our Company
                                             </h2>
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -437,27 +437,31 @@
             </div>
             <div class="row">
                 @foreach ($tokuteis as $tokutei)
+                
                     <div class="col-md-3 col-lg-3 col-xl-3 mb-3">
-                        <div class="tm-sc-blog blog-style-default mb-lg-30">
-                            <article class="post type-post status-publish format-standard has-post-thumbnail">
-                                <div class="entry-header">
-                                    <div class="post-thumb lightgallery-lightbox">
-                                        <div class="post-thumb-inner">
-                                            <div class="thumb">
-                                                <img src="{{ $tokutei->photo }}" alt="Image"
-                                                    style="width: 100%; height: 200px; background-size: center; object-fit: cover; border: 3px solid #B1812C; padding: 7px;" />
+                        <a href="https://www.mm.emb-japan.go.jp/profile/myanmar/ssw/overview/#a01" target="_blank">
+                            <div class="tm-sc-blog blog-style-default mb-lg-30">
+                                <article class="post type-post status-publish format-standard has-post-thumbnail">
+                                    <div class="entry-header">
+                                        <div class="post-thumb lightgallery-lightbox">
+                                            <div class="post-thumb-inner">
+                                                <div class="thumb">
+                                                    <img src="{{ $tokutei->photo }}" alt="Image"
+                                                        style="width: 100%; height: 200px; background-size: center; object-fit: cover; border: 3px solid #B1812C; padding: 7px;" />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="entry-content" style="padding: 10px">
-                                    <h5 class="entry-title" style="font-size: 15px;">
-                                        {{ $tokutei->title ?? '' }}
-                                    </h5>
-                                </div>
-                            </article>
-                        </div>
+                                    <div class="entry-content" style="padding: 10px">
+                                        <h5 class="entry-title" style="font-size: 15px;">
+                                            {{ $tokutei->title ?? '' }}
+                                        </h5>
+                                    </div>
+                                </article>
+                            </div>
+                        </a>
                     </div>
+                
                 @endforeach
             </div>
         </div>
@@ -478,7 +482,7 @@
                 <div class="col-md-9 col-lg-9 col-sm-9">
                     <h4 class="heading-title" style="text-align: center">
                         I Am Myanmar Co.,Ltd is your trusted recruitment and management partner for skilled talent in
-                        Southeast
+                        
                         Asia and Myanmar.
                     </h4>
                 </div>

@@ -37,16 +37,15 @@
             <div class="col-md-9">
                 <div class="row">
 
-                    <div class="col-md-3 col-xl-3">
-                        <div class="tm-sc-team-box">
-                            <div class="tm-thumb">
-                                <img class="img-fullwidth" src="https://nexocode.com/images/about/slider/m.wojcik.webp"
-                                    alt="1.jpg"
-                                    style="width: 100%; height: 270px; background-size: center; object-fit: cover; border: 3px solid #B1812C; padding: 7px;">
-                            </div>
-                            
-                        </div>
-                    </div>
+                    <!--<div class="col-md-3 col-xl-3">-->
+                    <!--    <div class="tm-sc-team-box">-->
+                    <!--        <div class="tm-thumb">-->
+                    <!--            <img class="img-fullwidth" src="https://nexocode.com/images/about/slider/m.wojcik.webp"-->
+                    <!--                alt="1.jpg"-->
+                    <!--                style="width: 100%; height: 270px; background-size: center; object-fit: cover; border: 3px solid #B1812C; padding: 7px;">-->
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--</div>-->
 
                     <div class="col-xl-8 col-lg-8">
                         <div class="part-txt">

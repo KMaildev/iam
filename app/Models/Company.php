@@ -20,5 +20,12 @@ class Company extends Model
         'created_at',
         'updated_at',
         'user_id',
+        'company_name',
+        'facebook_link',
+        'instagram_link',
+        'website',
+        'other',
+        'plain_password',
+        'account_id',
     ];
 }

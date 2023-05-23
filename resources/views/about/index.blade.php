@@ -29,7 +29,7 @@
                                                 Welcome to I Am Myanmar Co.,Ltd
                                             </p>
                                             <h2 class="title">
-                                                Company Profile
+                                                About Our Company
                                             </h2>
                                             <div class="row">
                                                 <div class="col-md-6">

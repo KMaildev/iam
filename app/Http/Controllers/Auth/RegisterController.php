@@ -53,7 +53,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -66,12 +66,12 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
+        $password = $data['password'] ?? date('123123');
         
-
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make($password),
             'gender' => $data['gender'],
             'age' => $data['age'],
             'date_of_birth' => $data['date_of_birth'],
@@ -94,16 +94,29 @@ class RegisterController extends Controller
         ]);
 
         if ($data['account_type'] == 'company') {
+            
+            $company = Company::count();
+            $company_count = sprintf('%04d', $company + 1);
+            $company_id = sprintf('ID-' . $company_count);
+
             Company::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
-                'password' => Hash::make($data['password']),
+                'password' => Hash::make($password),
                 'name' => $data['name'],
                 'phone' => $data['phone_no'],
                 'address' => $data['address'],
                 'account_type' => $data['account_type'],
                 'is_active' => 'active',
                 'user_id' => $user->id,
+
+                'company_name' => $data['company_name'],
+                'facebook_link' => $data['facebook_link'],
+                'instagram_link' => $data['instagram_link'],
+                'website' => $data['website'],
+                'other' => $data['other'],
+                'plain_password' => $password,
+                'account_id' => $company_id,
             ]);
         }
 
