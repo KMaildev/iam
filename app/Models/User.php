@@ -97,8 +97,8 @@ class User extends Authenticatable
         return $this->belongsTo(LanguageLevel::class, 'language_level_id', 'id');
     }
 
-    // public function company_user_lists_table()
-    // {
-    //     return $this->belongsTo(CompanyUserList::class, 'id', 'user_list_id');
-    // }
+    public function companies()
+    {
+        return $this->belongsTo(Company::class, 'companie_id', 'id');
+    }
 }

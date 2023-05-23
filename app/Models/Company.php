@@ -28,4 +28,9 @@ class Company extends Model
         'plain_password',
         'account_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }
