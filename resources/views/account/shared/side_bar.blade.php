@@ -39,11 +39,11 @@
                 Selected Students
             </a>
 
-            <a href="{{ route('company_account.index') }}"
+            {{-- <a href="{{ route('company_account.index') }}"
                 class="list-group-item list-group-item-action {{ request()->is('company_account') ? 'active_color' : '' }}">
                 <i class="fa fa-edit"></i>
                 Update Your Information
-            </a>
+            </a> --}}
             
         @endif
 

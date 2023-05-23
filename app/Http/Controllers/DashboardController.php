@@ -13,6 +13,11 @@ class DashboardController extends Controller
     {
         $id = auth()->user()->id;
         $user = User::findOrFail($id);
-        return view('account.dashboard.index', compact('user'));
+        if ($user->is_active == 'pending') {
+            Auth::logout();
+            return view('account.approval_status');
+        }else{
+            return view('account.dashboard.index', compact('user'));
+        }
     }
 }

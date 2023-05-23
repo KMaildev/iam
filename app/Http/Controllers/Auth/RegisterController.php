@@ -90,7 +90,7 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'phone_no' => $data['phone_no'],
             'account_type' => $data['account_type'],
-            'is_active' => 'active',
+            'is_active' => ($data['account_type'] == 'company') ? ('pending') : ('active'),
         ]);
 
         if ($data['account_type'] == 'company') {
@@ -107,7 +107,7 @@ class RegisterController extends Controller
                 'phone' => $data['phone_no'],
                 'address' => $data['address'],
                 'account_type' => $data['account_type'],
-                'is_active' => 'active',
+                'is_active' => ($data['account_type'] == 'company') ? ('pending') : ('active'),
                 'user_id' => $user->id,
 
                 'company_name' => $data['company_name'],
