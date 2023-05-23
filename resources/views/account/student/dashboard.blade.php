@@ -54,13 +54,13 @@
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="avatar">
                                         <span class="avatar-initial bg-label-primary rounded-circle">
-                                            @if ($user->first_status == 'selected')
+                                            @if ($user->second_status == 'selected')
                                                 <br>
                                                 <i class="fa fa-square-check fa-2x" style="color: white;"></i>
                                                 <br>
                                                 <span style="color: white;">
                                                     <i class="fa-solid fa-calendar"></i>
-                                                    {{ $user->first_select_date ?? '' }}
+                                                    {{ $user->second_select_date ?? '' }}
                                                 </span>
                                             @else
                                                 <br>

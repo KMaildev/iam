@@ -16,18 +16,6 @@ class Menu{
 		),
 		
 		array(
-			'path' => 'users', 
-			'label' => 'Students', 
-			'icon' => ''
-		),
-		
-		array(
-			'path' => 'companies', 
-			'label' => 'Company', 
-			'icon' => ''
-		),
-		
-		array(
 			'path' => 'activities', 
 			'label' => 'Activities', 
 			'icon' => ''

@@ -57,7 +57,7 @@
                                         </button>
                                     </div>
                                     <hr />
-                                    <div class="text-center" hidden>
+                                    <div class="text-center">
                                         Don't Have an Account? <a href="<?php print_link("index/register") ?>" class="btn btn-success">Register
                                         <i class="fa fa-user"></i></a>
                                     </div>
