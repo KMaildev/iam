@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StudentManageController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('admin.student.index');
     }
 
@@ -36,4 +39,13 @@ class StudentManageController extends Controller
             "statusCode" => 200,
         ));
     }
+
+
+    public function UserExport() 
+    {
+        $users = User::where('account_type', 'student')
+            ->get();
+
+        return Excel::download(new UsersExport($users), 'student_' . date("Y-m-d H:i:s") . '.xlsx');
+    }    
 }

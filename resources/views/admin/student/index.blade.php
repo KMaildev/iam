@@ -14,7 +14,12 @@
                 Students
             </div>
             <div class="card-body">
-                <div class="table-responsive text-nowrap">
+                <a href="{{ route('user_export') }}" class="btn btn-success btn-sm">
+                    <i class="fa fa-file"></i>
+                    Excel Download
+                </a>
+
+                <div class="table-responsive text-nowrap py-2">
                     <table id="datatable" class="table  yajra-datatable">
                         <thead>
                             <tr style="background-color: #903731;">

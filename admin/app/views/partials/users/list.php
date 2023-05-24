@@ -126,6 +126,9 @@ $show_pagination = $this->show_pagination;
                                                 <th  class="td-second_select_date"> Second Select Date</th>
                                                 <th  class="td-third_status"> Third Status</th>
                                                 <th  class="td-third_select_date"> Third Select Date</th>
+                                                <th  class="td-last_login_at"> Last Login At</th>
+                                                <th  class="td-last_login_ip"> Last Login Ip</th>
+                                                <th  class="td-device"> Device</th>
                                                 <th class="td-btn"></th>
                                             </tr>
                                         </thead>
@@ -302,6 +305,48 @@ $show_pagination = $this->show_pagination;
                                                             data-showbuttons="left" 
                                                             class="is-editable" >
                                                             <?php echo $data['third_select_date']; ?> 
+                                                        </span>
+                                                    </td>
+                                                    <td class="td-last_login_at">
+                                                        <span  data-pk="<?php echo $data['id'] ?>" 
+                                                            data-url="<?php print_link("users/editfield/" . urlencode($data['id'])); ?>" 
+                                                            data-name="last_login_at" 
+                                                            data-title="Enter Last Login At" 
+                                                            data-placement="left" 
+                                                            data-toggle="click" 
+                                                            data-type="textarea" 
+                                                            data-mode="popover" 
+                                                            data-showbuttons="left" 
+                                                            class="is-editable" >
+                                                            <?php echo $data['last_login_at']; ?> 
+                                                        </span>
+                                                    </td>
+                                                    <td class="td-last_login_ip">
+                                                        <span  data-pk="<?php echo $data['id'] ?>" 
+                                                            data-url="<?php print_link("users/editfield/" . urlencode($data['id'])); ?>" 
+                                                            data-name="last_login_ip" 
+                                                            data-title="Enter Last Login Ip" 
+                                                            data-placement="left" 
+                                                            data-toggle="click" 
+                                                            data-type="textarea" 
+                                                            data-mode="popover" 
+                                                            data-showbuttons="left" 
+                                                            class="is-editable" >
+                                                            <?php echo $data['last_login_ip']; ?> 
+                                                        </span>
+                                                    </td>
+                                                    <td class="td-device">
+                                                        <span  data-pk="<?php echo $data['id'] ?>" 
+                                                            data-url="<?php print_link("users/editfield/" . urlencode($data['id'])); ?>" 
+                                                            data-name="device" 
+                                                            data-title="Enter Device" 
+                                                            data-placement="left" 
+                                                            data-toggle="click" 
+                                                            data-type="textarea" 
+                                                            data-mode="popover" 
+                                                            data-showbuttons="left" 
+                                                            class="is-editable" >
+                                                            <?php echo $data['device']; ?> 
                                                         </span>
                                                     </td>
                                                     <th class="td-btn">

@@ -31,7 +31,10 @@ class UsersController extends SecureController{
 			"users.second_status", 
 			"users.second_select_date", 
 			"users.third_status", 
-			"users.third_select_date");
+			"users.third_select_date", 
+			"users.last_login_at", 
+			"users.last_login_ip", 
+			"users.device");
 		$pagination = $this->get_pagination(MAX_RECORD_COUNT); // get current pagination e.g array(page_number, page_limit)
 		//search table record
 		if(!empty($request->search)){
@@ -74,10 +77,13 @@ class UsersController extends SecureController{
 				users.second_status LIKE ? OR 
 				users.second_select_date LIKE ? OR 
 				users.third_status LIKE ? OR 
-				users.third_select_date LIKE ?
+				users.third_select_date LIKE ? OR 
+				users.last_login_at LIKE ? OR 
+				users.last_login_ip LIKE ? OR 
+				users.device LIKE ?
 			)";
 			$search_params = array(
-				"%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%"
+				"%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%"
 			);
 			//setting search conditions
 			$db->where($search_condition, $search_params);
@@ -161,7 +167,10 @@ class UsersController extends SecureController{
 			"users.second_status", 
 			"users.second_select_date", 
 			"users.third_status", 
-			"users.third_select_date");
+			"users.third_select_date", 
+			"users.last_login_at", 
+			"users.last_login_ip", 
+			"users.device");
 		if($value){
 			$db->where($rec_id, urldecode($value)); //select record based on field name
 		}
@@ -199,7 +208,7 @@ class UsersController extends SecureController{
 			$tablename = $this->tablename;
 			$request = $this->request;
 			//fillable fields
-			$fields = $this->fields = array("name","email","password","gender","age","language_level_id","height","weight","date_of_birth","address","education","foreign_experience","other_qualification","marital_status","blood_type","wearing_glasses_or_not","birth_place","nationality","religion","phone_no","nrc_photo_back","nrc_photo_front","household_members","japan_certificate","companie_id","first_status","first_select_date","second_status","second_select_date","third_status","third_select_date");
+			$fields = $this->fields = array("name","email","password","gender","age","language_level_id","height","weight","date_of_birth","address","education","foreign_experience","other_qualification","marital_status","blood_type","wearing_glasses_or_not","birth_place","nationality","religion","phone_no","nrc_photo_back","nrc_photo_front","household_members","japan_certificate","companie_id","first_status","first_select_date","second_status","second_select_date","third_status","third_select_date","last_login_at","last_login_ip","device");
 			$postdata = $this->format_request_data($formdata);
 			$cpassword = $postdata['confirm_password'];
 			$password = $postdata['password'];
@@ -227,6 +236,9 @@ class UsersController extends SecureController{
 				'nationality' => 'required',
 				'religion' => 'required',
 				'phone_no' => 'required',
+				'last_login_at' => 'required',
+				'last_login_ip' => 'required',
+				'device' => 'required',
 			);
 			$this->sanitize_array = array(
 				'name' => 'sanitize_string',
@@ -259,6 +271,9 @@ class UsersController extends SecureController{
 				'second_select_date' => 'sanitize_string',
 				'third_status' => 'sanitize_string',
 				'third_select_date' => 'sanitize_string',
+				'last_login_at' => 'sanitize_string',
+				'last_login_ip' => 'sanitize_string',
+				'device' => 'sanitize_string',
 			);
 			$this->filter_vals = true; //set whether to remove empty fields
 			$modeldata = $this->modeldata = $this->validate_form($postdata);
@@ -291,7 +306,7 @@ class UsersController extends SecureController{
 		$this->rec_id = $rec_id;
 		$tablename = $this->tablename;
 		 //editable fields
-		$fields = $this->fields = array("id","name","email","gender","age","language_level_id","height","weight","date_of_birth","address","education","foreign_experience","other_qualification","marital_status","blood_type","wearing_glasses_or_not","birth_place","nationality","religion","phone_no","nrc_photo_back","nrc_photo_front","household_members","japan_certificate","companie_id","first_status","first_select_date","second_status","second_select_date","third_status","third_select_date");
+		$fields = $this->fields = array("id","name","email","gender","age","language_level_id","height","weight","date_of_birth","address","education","foreign_experience","other_qualification","marital_status","blood_type","wearing_glasses_or_not","birth_place","nationality","religion","phone_no","nrc_photo_back","nrc_photo_front","household_members","japan_certificate","companie_id","first_status","first_select_date","second_status","second_select_date","third_status","third_select_date","last_login_at","last_login_ip","device");
 		if($formdata){
 			$postdata = $this->format_request_data($formdata);
 			$this->rules_array = array(
@@ -314,6 +329,9 @@ class UsersController extends SecureController{
 				'nationality' => 'required',
 				'religion' => 'required',
 				'phone_no' => 'required',
+				'last_login_at' => 'required',
+				'last_login_ip' => 'required',
+				'device' => 'required',
 			);
 			$this->sanitize_array = array(
 				'name' => 'sanitize_string',
@@ -346,6 +364,9 @@ class UsersController extends SecureController{
 				'second_select_date' => 'sanitize_string',
 				'third_status' => 'sanitize_string',
 				'third_select_date' => 'sanitize_string',
+				'last_login_at' => 'sanitize_string',
+				'last_login_ip' => 'sanitize_string',
+				'device' => 'sanitize_string',
 			);
 			$modeldata = $this->modeldata = $this->validate_form($postdata);
 			if($this->validated()){
@@ -389,7 +410,7 @@ class UsersController extends SecureController{
 		$this->rec_id = $rec_id;
 		$tablename = $this->tablename;
 		//editable fields
-		$fields = $this->fields = array("id","name","email","gender","age","language_level_id","height","weight","date_of_birth","address","education","foreign_experience","other_qualification","marital_status","blood_type","wearing_glasses_or_not","birth_place","nationality","religion","phone_no","nrc_photo_back","nrc_photo_front","household_members","japan_certificate","companie_id","first_status","first_select_date","second_status","second_select_date","third_status","third_select_date");
+		$fields = $this->fields = array("id","name","email","gender","age","language_level_id","height","weight","date_of_birth","address","education","foreign_experience","other_qualification","marital_status","blood_type","wearing_glasses_or_not","birth_place","nationality","religion","phone_no","nrc_photo_back","nrc_photo_front","household_members","japan_certificate","companie_id","first_status","first_select_date","second_status","second_select_date","third_status","third_select_date","last_login_at","last_login_ip","device");
 		$page_error = null;
 		if($formdata){
 			$postdata = array();
@@ -417,6 +438,9 @@ class UsersController extends SecureController{
 				'nationality' => 'required',
 				'religion' => 'required',
 				'phone_no' => 'required',
+				'last_login_at' => 'required',
+				'last_login_ip' => 'required',
+				'device' => 'required',
 			);
 			$this->sanitize_array = array(
 				'name' => 'sanitize_string',
@@ -449,6 +473,9 @@ class UsersController extends SecureController{
 				'second_select_date' => 'sanitize_string',
 				'third_status' => 'sanitize_string',
 				'third_select_date' => 'sanitize_string',
+				'last_login_at' => 'sanitize_string',
+				'last_login_ip' => 'sanitize_string',
+				'device' => 'sanitize_string',
 			);
 			$this->filter_rules = true; //filter validation rules by excluding fields not in the formdata
 			$modeldata = $this->modeldata = $this->validate_form($postdata);

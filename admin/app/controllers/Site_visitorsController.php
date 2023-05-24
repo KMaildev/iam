@@ -1,12 +1,12 @@
 <?php 
 /**
- * Companies Page Controller
+ * Site_visitors Page Controller
  * @category  Controller
  */
-class CompaniesController extends SecureController{
+class Site_visitorsController extends SecureController{
 	function __construct(){
 		parent::__construct();
-		$this->tablename = "companies";
+		$this->tablename = "site_visitors";
 	}
 	/**
      * List page records
@@ -19,49 +19,26 @@ class CompaniesController extends SecureController{
 		$db = $this->GetModel();
 		$tablename = $this->tablename;
 		$fields = array("id", 
-			"name", 
-			"address", 
-			"phone", 
-			"email", 
-			"company_name", 
-			"facebook_link", 
-			"instagram_link", 
-			"website", 
-			"other", 
-			"plain_password", 
-			"account_id");
+			"total_count", 
+			"created_at", 
+			"updated_at");
 		$pagination = $this->get_pagination(MAX_RECORD_COUNT); // get current pagination e.g array(page_number, page_limit)
 		//search table record
 		if(!empty($request->search)){
 			$text = trim($request->search); 
 			$search_condition = "(
-				companies.id LIKE ? OR 
-				companies.name LIKE ? OR 
-				companies.address LIKE ? OR 
-				companies.phone LIKE ? OR 
-				companies.email LIKE ? OR 
-				companies.email_verified_at LIKE ? OR 
-				companies.password LIKE ? OR 
-				companies.is_active LIKE ? OR 
-				companies.account_type LIKE ? OR 
-				companies.created_at LIKE ? OR 
-				companies.updated_at LIKE ? OR 
-				companies.user_id LIKE ? OR 
-				companies.company_name LIKE ? OR 
-				companies.facebook_link LIKE ? OR 
-				companies.instagram_link LIKE ? OR 
-				companies.website LIKE ? OR 
-				companies.other LIKE ? OR 
-				companies.plain_password LIKE ? OR 
-				companies.account_id LIKE ?
+				site_visitors.id LIKE ? OR 
+				site_visitors.total_count LIKE ? OR 
+				site_visitors.created_at LIKE ? OR 
+				site_visitors.updated_at LIKE ?
 			)";
 			$search_params = array(
-				"%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%"
+				"%$text%","%$text%","%$text%","%$text%"
 			);
 			//setting search conditions
 			$db->where($search_condition, $search_params);
 			 //template to use when ajax search
-			$this->view->search_template = "companies/search.php";
+			$this->view->search_template = "site_visitors/search.php";
 		}
 		if(!empty($request->orderby)){
 			$orderby = $request->orderby;
@@ -69,7 +46,7 @@ class CompaniesController extends SecureController{
 			$db->orderBy($orderby, $ordertype);
 		}
 		else{
-			$db->orderBy("companies.id", ORDER_TYPE);
+			$db->orderBy("site_visitors.id", ORDER_TYPE);
 		}
 		if($fieldname){
 			$db->where($fieldname , $fieldvalue); //filter by a single field name
@@ -88,13 +65,13 @@ class CompaniesController extends SecureController{
 		if($db->getLastError()){
 			$this->set_page_error();
 		}
-		$page_title = $this->view->page_title = "Companies";
+		$page_title = $this->view->page_title = "Site Visitors";
 		$this->view->report_filename = date('Y-m-d') . '-' . $page_title;
 		$this->view->report_title = $page_title;
 		$this->view->report_layout = "report_layout.php";
 		$this->view->report_paper_size = "A4";
 		$this->view->report_orientation = "portrait";
-		$this->render_view("companies/list.php", $data); //render the full page
+		$this->render_view("site_visitors/list.php", $data); //render the full page
 	}
 	/**
      * View record detail 
@@ -108,26 +85,18 @@ class CompaniesController extends SecureController{
 		$rec_id = $this->rec_id = urldecode($rec_id);
 		$tablename = $this->tablename;
 		$fields = array("id", 
-			"name", 
-			"address", 
-			"phone", 
-			"email", 
-			"company_name", 
-			"facebook_link", 
-			"instagram_link", 
-			"website", 
-			"other", 
-			"plain_password", 
-			"account_id");
+			"total_count", 
+			"created_at", 
+			"updated_at");
 		if($value){
 			$db->where($rec_id, urldecode($value)); //select record based on field name
 		}
 		else{
-			$db->where("companies.id", $rec_id);; //select record based on primary key
+			$db->where("site_visitors.id", $rec_id);; //select record based on primary key
 		}
 		$record = $db->getOne($tablename, $fields );
 		if($record){
-			$page_title = $this->view->page_title = "View  Companies";
+			$page_title = $this->view->page_title = "View  Site Visitors";
 		$this->view->report_filename = date('Y-m-d') . '-' . $page_title;
 		$this->view->report_title = $page_title;
 		$this->view->report_layout = "report_layout.php";
@@ -142,7 +111,102 @@ class CompaniesController extends SecureController{
 				$this->set_page_error("No record found");
 			}
 		}
-		return $this->render_view("companies/view.php", $record);
+		return $this->render_view("site_visitors/view.php", $record);
+	}
+	/**
+     * Insert new record to the database table
+	 * @param $formdata array() from $_POST
+     * @return BaseView
+     */
+	function add($formdata = null){
+		if($formdata){
+			$db = $this->GetModel();
+			$tablename = $this->tablename;
+			$request = $this->request;
+			//fillable fields
+			$fields = $this->fields = array("total_count","created_at","updated_at");
+			$postdata = $this->format_request_data($formdata);
+			$this->rules_array = array(
+				'total_count' => 'required',
+				'created_at' => 'required',
+				'updated_at' => 'required',
+			);
+			$this->sanitize_array = array(
+				'total_count' => 'sanitize_string',
+				'created_at' => 'sanitize_string',
+				'updated_at' => 'sanitize_string',
+			);
+			$this->filter_vals = true; //set whether to remove empty fields
+			$modeldata = $this->modeldata = $this->validate_form($postdata);
+			if($this->validated()){
+				$rec_id = $this->rec_id = $db->insert($tablename, $modeldata);
+				if($rec_id){
+					$this->set_flash_msg("Record added successfully", "success");
+					return	$this->redirect("site_visitors");
+				}
+				else{
+					$this->set_page_error();
+				}
+			}
+		}
+		$page_title = $this->view->page_title = "Add New Site Visitors";
+		$this->render_view("site_visitors/add.php");
+	}
+	/**
+     * Update table record with formdata
+	 * @param $rec_id (select record by table primary key)
+	 * @param $formdata array() from $_POST
+     * @return array
+     */
+	function edit($rec_id = null, $formdata = null){
+		$request = $this->request;
+		$db = $this->GetModel();
+		$this->rec_id = $rec_id;
+		$tablename = $this->tablename;
+		 //editable fields
+		$fields = $this->fields = array("id","total_count","created_at","updated_at");
+		if($formdata){
+			$postdata = $this->format_request_data($formdata);
+			$this->rules_array = array(
+				'total_count' => 'required',
+				'created_at' => 'required',
+				'updated_at' => 'required',
+			);
+			$this->sanitize_array = array(
+				'total_count' => 'sanitize_string',
+				'created_at' => 'sanitize_string',
+				'updated_at' => 'sanitize_string',
+			);
+			$modeldata = $this->modeldata = $this->validate_form($postdata);
+			if($this->validated()){
+				$db->where("site_visitors.id", $rec_id);;
+				$bool = $db->update($tablename, $modeldata);
+				$numRows = $db->getRowCount(); //number of affected rows. 0 = no record field updated
+				if($bool && $numRows){
+					$this->set_flash_msg("Record updated successfully", "success");
+					return $this->redirect("site_visitors");
+				}
+				else{
+					if($db->getLastError()){
+						$this->set_page_error();
+					}
+					elseif(!$numRows){
+						//not an error, but no record was updated
+						$page_error = "No record updated";
+						$this->set_page_error($page_error);
+						$this->set_flash_msg($page_error, "warning");
+						return	$this->redirect("site_visitors");
+					}
+				}
+			}
+		}
+		$db->where("site_visitors.id", $rec_id);;
+		$data = $db->getOne($tablename, $fields);
+		$page_title = $this->view->page_title = "Edit  Site Visitors";
+		if(!$data){
+			$this->set_page_error();
+		}
+		return $this->render_view("site_visitors/edit.php", $data);
 	}
 	/**
      * Update single field
@@ -155,7 +219,7 @@ class CompaniesController extends SecureController{
 		$this->rec_id = $rec_id;
 		$tablename = $this->tablename;
 		//editable fields
-		$fields = $this->fields = array("id","name","address","phone","email","company_name","facebook_link","instagram_link","website","other","plain_password","account_id");
+		$fields = $this->fields = array("id","total_count","created_at","updated_at");
 		$page_error = null;
 		if($formdata){
 			$postdata = array();
@@ -164,35 +228,19 @@ class CompaniesController extends SecureController{
 			$postdata[$fieldname] = $fieldvalue;
 			$postdata = $this->format_request_data($postdata);
 			$this->rules_array = array(
-				'name' => 'required',
-				'address' => 'required',
-				'phone' => 'required',
-				'email' => 'required|valid_email',
-				'company_name' => 'required',
-				'facebook_link' => 'required',
-				'instagram_link' => 'required',
-				'website' => 'required',
-				'other' => 'required',
-				'plain_password' => 'required',
-				'account_id' => 'required',
+				'total_count' => 'required',
+				'created_at' => 'required',
+				'updated_at' => 'required',
 			);
 			$this->sanitize_array = array(
-				'name' => 'sanitize_string',
-				'address' => 'sanitize_string',
-				'phone' => 'sanitize_string',
-				'email' => 'sanitize_string',
-				'company_name' => 'sanitize_string',
-				'facebook_link' => 'sanitize_string',
-				'instagram_link' => 'sanitize_string',
-				'website' => 'sanitize_string',
-				'other' => 'sanitize_string',
-				'plain_password' => 'sanitize_string',
-				'account_id' => 'sanitize_string',
+				'total_count' => 'sanitize_string',
+				'created_at' => 'sanitize_string',
+				'updated_at' => 'sanitize_string',
 			);
 			$this->filter_rules = true; //filter validation rules by excluding fields not in the formdata
 			$modeldata = $this->modeldata = $this->validate_form($postdata);
 			if($this->validated()){
-				$db->where("companies.id", $rec_id);;
+				$db->where("site_visitors.id", $rec_id);;
 				$bool = $db->update($tablename, $modeldata);
 				$numRows = $db->getRowCount();
 				if($bool && $numRows){
@@ -232,7 +280,7 @@ class CompaniesController extends SecureController{
 		$this->rec_id = $rec_id;
 		//form multiple delete, split record id separated by comma into array
 		$arr_rec_id = array_map('trim', explode(",", $rec_id));
-		$db->where("companies.id", $arr_rec_id, "in");
+		$db->where("site_visitors.id", $arr_rec_id, "in");
 		$bool = $db->delete($tablename);
 		if($bool){
 			$this->set_flash_msg("Record deleted successfully", "success");
@@ -241,6 +289,6 @@ class CompaniesController extends SecureController{
 			$page_error = $db->getLastError();
 			$this->set_flash_msg($page_error, "danger");
 		}
-		return	$this->redirect("companies");
+		return	$this->redirect("site_visitors");
 	}
 }

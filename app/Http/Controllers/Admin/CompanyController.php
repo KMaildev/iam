@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\CompanyExport;
 use App\Http\Controllers\Controller;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class CompanyController extends Controller
 {
@@ -65,4 +68,11 @@ class CompanyController extends Controller
             "statusCode" => 200,
         ));
     }
+
+
+    public function CompanyExport() 
+    {
+        $companies = Company::all();
+        return Excel::download(new CompanyExport($companies), 'company_' . date("Y-m-d H:i:s") . '.xlsx');
+    }    
 }

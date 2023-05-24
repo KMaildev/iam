@@ -117,6 +117,125 @@ $show_export_btn = $this->show_export_btn;
                                             </span>
                                         </td>
                                     </tr>
+                                    <tr  class="td-company_name">
+                                        <th class="title"> Company Name: </th>
+                                        <td class="value">
+                                            <span  data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="company_name" 
+                                                data-title="Enter Company Name" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="textarea" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" >
+                                                <?php echo $data['company_name']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-facebook_link">
+                                        <th class="title"> Facebook Link: </th>
+                                        <td class="value">
+                                            <span  data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="facebook_link" 
+                                                data-title="Enter Facebook Link" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="textarea" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" >
+                                                <?php echo $data['facebook_link']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-instagram_link">
+                                        <th class="title"> Instagram Link: </th>
+                                        <td class="value">
+                                            <span  data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="instagram_link" 
+                                                data-title="Enter Instagram Link" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="textarea" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" >
+                                                <?php echo $data['instagram_link']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-website">
+                                        <th class="title"> Website: </th>
+                                        <td class="value">
+                                            <span  data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="website" 
+                                                data-title="Enter Website" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="textarea" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" >
+                                                <?php echo $data['website']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-other">
+                                        <th class="title"> Other: </th>
+                                        <td class="value">
+                                            <span  data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="other" 
+                                                data-title="Enter Other" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="textarea" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" >
+                                                <?php echo $data['other']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-plain_password">
+                                        <th class="title"> Plain Password: </th>
+                                        <td class="value">
+                                            <span  data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="plain_password" 
+                                                data-title="Enter Plain Password" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="textarea" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" >
+                                                <?php echo $data['plain_password']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-account_id">
+                                        <th class="title"> Account Id: </th>
+                                        <td class="value">
+                                            <span  data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="account_id" 
+                                                data-title="Enter Account Id" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="textarea" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" >
+                                                <?php echo $data['account_id']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
                                 </tbody>
                                 <!-- Table Body End -->
                             </table>

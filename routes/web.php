@@ -69,10 +69,14 @@ Route::get('admin_logout', [AdminDashboardController::class, 'logoutAdmin'])->na
 
 Route::resource('company', CompanyController::class);
 Route::get('user_active_status', [CompanyController::class, 'activeStatus'])->name('user_active_status');
+Route::get('company_export', [CompanyController::class, 'CompanyExport'])->name('company_export');
+
 
 Route::resource('student_manage', StudentManageController::class);
 Route::get('updateSecondSelectDate', [StudentManageController::class, 'updateSecondSelectDate'])->name('updateSecondSelectDate');
 Route::get('updateThirdSelectDate', [StudentManageController::class, 'updateThirdSelectDate'])->name('updateThirdSelectDate');
+Route::get('user_export', [StudentManageController::class, 'UserExport'])->name('user_export');
+
 
 Route::get('admin_student_lists_datatable', [StudentListController::class, 'adminStudentListsDatatable'])->name('admin_student_lists_datatable');
 

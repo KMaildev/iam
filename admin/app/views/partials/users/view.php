@@ -524,6 +524,57 @@ $show_export_btn = $this->show_export_btn;
                                             </span>
                                         </td>
                                     </tr>
+                                    <tr  class="td-last_login_at">
+                                        <th class="title"> Last Login At: </th>
+                                        <td class="value">
+                                            <span  data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("users/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="last_login_at" 
+                                                data-title="Enter Last Login At" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="textarea" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" >
+                                                <?php echo $data['last_login_at']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-last_login_ip">
+                                        <th class="title"> Last Login Ip: </th>
+                                        <td class="value">
+                                            <span  data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("users/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="last_login_ip" 
+                                                data-title="Enter Last Login Ip" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="textarea" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" >
+                                                <?php echo $data['last_login_ip']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-device">
+                                        <th class="title"> Device: </th>
+                                        <td class="value">
+                                            <span  data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("users/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="device" 
+                                                data-title="Enter Device" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="textarea" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" >
+                                                <?php echo $data['device']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
                                 </tbody>
                                 <!-- Table Body End -->
                             </table>

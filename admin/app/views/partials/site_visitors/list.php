@@ -1,5 +1,4 @@
 <?php
-echo "<script>location.href='http://localhost:8000/admin_panel'</script>";
 $comp_model = new SharedController;
 $page_element_id = "list-page-" . random_str();
 $current_page = $this->set_current_page_link();
@@ -24,10 +23,16 @@ $show_pagination = $this->show_pagination;
         <div class="container-fluid">
             <div class="row ">
                 <div class="col ">
-                    <h4 class="record-title">Companies</h4>
+                    <h4 class="record-title">Site Visitors</h4>
+                </div>
+                <div class="col-sm-3 ">
+                    <a  class="btn btn btn-primary my-1" href="<?php print_link("site_visitors/add") ?>">
+                        <i class="fa fa-plus"></i>                              
+                        Add New Site Visitors 
+                    </a>
                 </div>
                 <div class="col-sm-4 ">
-                    <form  class="search" action="<?php print_link('companies'); ?>" method="get">
+                    <form  class="search" action="<?php print_link('site_visitors'); ?>" method="get">
                         <div class="input-group">
                             <input value="<?php echo get_value('search'); ?>" class="form-control" type="text" name="search"  placeholder="Search" />
                                 <div class="input-group-append">
@@ -49,7 +54,7 @@ $show_pagination = $this->show_pagination;
                                     if(!empty($field_name)){
                                     ?>
                                     <li class="breadcrumb-item">
-                                        <a class="text-decoration-none" href="<?php print_link('companies'); ?>">
+                                        <a class="text-decoration-none" href="<?php print_link('site_visitors'); ?>">
                                             <i class="fa fa-angle-left"></i>
                                         </a>
                                     </li>
@@ -66,7 +71,7 @@ $show_pagination = $this->show_pagination;
                                     if(get_value("search")){
                                     ?>
                                     <li class="breadcrumb-item">
-                                        <a class="text-decoration-none" href="<?php print_link('companies'); ?>">
+                                        <a class="text-decoration-none" href="<?php print_link('site_visitors'); ?>">
                                             <i class="fa fa-angle-left"></i>
                                         </a>
                                     </li>
@@ -97,7 +102,7 @@ $show_pagination = $this->show_pagination;
                     <div class="col-md-12 comp-grid">
                         <?php $this :: display_page_errors(); ?>
                         <div  class=" animated fadeIn page-content">
-                            <div id="companies-list-records">
+                            <div id="site_visitors-list-records">
                                 <div id="page-report-body" class="table-responsive">
                                     <table class="table  table-striped table-sm text-left">
                                         <thead class="table-header bg-light">
@@ -109,17 +114,10 @@ $show_pagination = $this->show_pagination;
                                                     </label>
                                                 </th>
                                                 <th class="td-sno">#</th>
-                                                <th  class="td-name"> Name</th>
-                                                <th  class="td-address"> Address</th>
-                                                <th  class="td-phone"> Phone</th>
-                                                <th  class="td-email"> Email</th>
-                                                <th  class="td-company_name"> Company Name</th>
-                                                <th  class="td-facebook_link"> Facebook Link</th>
-                                                <th  class="td-instagram_link"> Instagram Link</th>
-                                                <th  class="td-website"> Website</th>
-                                                <th  class="td-other"> Other</th>
-                                                <th  class="td-plain_password"> Plain Password</th>
-                                                <th  class="td-account_id"> Account Id</th>
+                                                <th  class="td-id"> Id</th>
+                                                <th  class="td-total_count"> Total Count</th>
+                                                <th  class="td-created_at"> Created At</th>
+                                                <th  class="td-updated_at"> Updated At</th>
                                                 <th class="td-btn"></th>
                                             </tr>
                                         </thead>
@@ -142,141 +140,60 @@ $show_pagination = $this->show_pagination;
                                                         </label>
                                                     </th>
                                                     <th class="td-sno"><?php echo $counter; ?></th>
-                                                    <td class="td-name">
-                                                        <span  data-value="<?php echo $data['name']; ?>" 
+                                                    <td class="td-id"><a href="<?php print_link("site_visitors/view/$data[id]") ?>"><?php echo $data['id']; ?></a></td>
+                                                    <td class="td-total_count">
+                                                        <span  data-pk="<?php echo $data['id'] ?>" 
+                                                            data-url="<?php print_link("site_visitors/editfield/" . urlencode($data['id'])); ?>" 
+                                                            data-name="total_count" 
+                                                            data-title="Enter Total Count" 
+                                                            data-placement="left" 
+                                                            data-toggle="click" 
+                                                            data-type="textarea" 
+                                                            data-mode="popover" 
+                                                            data-showbuttons="left" 
+                                                            class="is-editable" >
+                                                            <?php echo $data['total_count']; ?> 
+                                                        </span>
+                                                    </td>
+                                                    <td class="td-created_at">
+                                                        <span  data-value="<?php echo $data['created_at']; ?>" 
                                                             data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="name" 
-                                                            data-title="Enter Name" 
+                                                            data-url="<?php print_link("site_visitors/editfield/" . urlencode($data['id'])); ?>" 
+                                                            data-name="created_at" 
+                                                            data-title="Enter Created At" 
                                                             data-placement="left" 
                                                             data-toggle="click" 
                                                             data-type="text" 
                                                             data-mode="popover" 
                                                             data-showbuttons="left" 
                                                             class="is-editable" >
-                                                            <?php echo $data['name']; ?> 
+                                                            <?php echo $data['created_at']; ?> 
                                                         </span>
                                                     </td>
-                                                    <td class="td-address">
-                                                        <span  data-value="<?php echo $data['address']; ?>" 
+                                                    <td class="td-updated_at">
+                                                        <span  data-flatpickr="{ minDate: '', maxDate: ''}" 
+                                                            data-value="<?php echo $data['updated_at']; ?>" 
                                                             data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="address" 
-                                                            data-title="Enter Address" 
+                                                            data-url="<?php print_link("site_visitors/editfield/" . urlencode($data['id'])); ?>" 
+                                                            data-name="updated_at" 
+                                                            data-title="Enter Updated At" 
                                                             data-placement="left" 
                                                             data-toggle="click" 
-                                                            data-type="text" 
+                                                            data-type="flatdatetimepicker" 
                                                             data-mode="popover" 
                                                             data-showbuttons="left" 
                                                             class="is-editable" >
-                                                            <?php echo $data['address']; ?> 
-                                                        </span>
-                                                    </td>
-                                                    <td class="td-phone"><a href="<?php print_link("tel:$data[phone]") ?>"><?php echo $data['phone']; ?></a></td>
-                                                    <td class="td-email"><a href="<?php print_link("mailto:$data[email]") ?>"><?php echo $data['email']; ?></a></td>
-                                                    <td class="td-company_name">
-                                                        <span  data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="company_name" 
-                                                            data-title="Enter Company Name" 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="textarea" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" >
-                                                            <?php echo $data['company_name']; ?> 
-                                                        </span>
-                                                    </td>
-                                                    <td class="td-facebook_link">
-                                                        <span  data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="facebook_link" 
-                                                            data-title="Enter Facebook Link" 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="textarea" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" >
-                                                            <?php echo $data['facebook_link']; ?> 
-                                                        </span>
-                                                    </td>
-                                                    <td class="td-instagram_link">
-                                                        <span  data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="instagram_link" 
-                                                            data-title="Enter Instagram Link" 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="textarea" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" >
-                                                            <?php echo $data['instagram_link']; ?> 
-                                                        </span>
-                                                    </td>
-                                                    <td class="td-website">
-                                                        <span  data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="website" 
-                                                            data-title="Enter Website" 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="textarea" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" >
-                                                            <?php echo $data['website']; ?> 
-                                                        </span>
-                                                    </td>
-                                                    <td class="td-other">
-                                                        <span  data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="other" 
-                                                            data-title="Enter Other" 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="textarea" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" >
-                                                            <?php echo $data['other']; ?> 
-                                                        </span>
-                                                    </td>
-                                                    <td class="td-plain_password">
-                                                        <span  data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="plain_password" 
-                                                            data-title="Enter Plain Password" 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="textarea" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" >
-                                                            <?php echo $data['plain_password']; ?> 
-                                                        </span>
-                                                    </td>
-                                                    <td class="td-account_id">
-                                                        <span  data-pk="<?php echo $data['id'] ?>" 
-                                                            data-url="<?php print_link("companies/editfield/" . urlencode($data['id'])); ?>" 
-                                                            data-name="account_id" 
-                                                            data-title="Enter Account Id" 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="textarea" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" >
-                                                            <?php echo $data['account_id']; ?> 
+                                                            <?php echo $data['updated_at']; ?> 
                                                         </span>
                                                     </td>
                                                     <th class="td-btn">
-                                                        <a class="btn btn-sm btn-success has-tooltip" title="View Record" href="<?php print_link("companies/view/$rec_id"); ?>">
+                                                        <a class="btn btn-sm btn-success has-tooltip" title="View Record" href="<?php print_link("site_visitors/view/$rec_id"); ?>">
                                                             <i class="fa fa-eye"></i> View
                                                         </a>
-                                                        <a class="btn btn-sm btn-danger has-tooltip record-delete-btn" title="Delete this record" href="<?php print_link("companies/delete/$rec_id/?csrf_token=$csrf_token&redirect=$current_page"); ?>" data-prompt-msg="Are you sure you want to delete this record?" data-display-style="modal">
+                                                        <a class="btn btn-sm btn-info has-tooltip" title="Edit This Record" href="<?php print_link("site_visitors/edit/$rec_id"); ?>">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                        <a class="btn btn-sm btn-danger has-tooltip record-delete-btn" title="Delete this record" href="<?php print_link("site_visitors/delete/$rec_id/?csrf_token=$csrf_token&redirect=$current_page"); ?>" data-prompt-msg="Are you sure you want to delete this record?" data-display-style="modal">
                                                             <i class="fa fa-times"></i>
                                                             Delete
                                                         </a>
@@ -309,7 +226,7 @@ $show_pagination = $this->show_pagination;
                                         <div class="row justify-content-center">    
                                             <div class="col-md-auto justify-content-center">    
                                                 <div class="p-3 d-flex justify-content-between">    
-                                                    <button data-prompt-msg="Are you sure you want to delete these records?" data-display-style="modal" data-url="<?php print_link("companies/delete/{sel_ids}/?csrf_token=$csrf_token&redirect=$current_page"); ?>" class="btn btn-sm btn-danger btn-delete-selected d-none">
+                                                    <button data-prompt-msg="Are you sure you want to delete these records?" data-display-style="modal" data-url="<?php print_link("site_visitors/delete/{sel_ids}/?csrf_token=$csrf_token&redirect=$current_page"); ?>" class="btn btn-sm btn-danger btn-delete-selected d-none">
                                                         <i class="fa fa-times"></i> Delete Selected
                                                     </button>
                                                     <div class="dropup export-btn-holder mx-1">

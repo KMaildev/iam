@@ -73,6 +73,12 @@ class Menu{
 			'path' => 'contacts', 
 			'label' => 'Contacts', 
 			'icon' => ''
+		),
+		
+		array(
+			'path' => 'companies', 
+			'label' => 'Management', 
+			'icon' => ''
 		)
 	);
 		

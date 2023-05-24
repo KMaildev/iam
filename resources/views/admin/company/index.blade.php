@@ -7,6 +7,10 @@
                     Company
                 </div>
                 <div class="card-body">
+                    <a href="{{ route('company_export') }}" class="btn btn-success btn-sm">
+                        <i class="fa fa-file"></i>
+                        Excel Download
+                    </a>
                     <div class="table-responsive text-nowrap">
                         <table class="table table-bordered">
                             <thead>
@@ -79,11 +83,15 @@
                                         </td>
 
                                         <td>
-                                            {{ $company->phone ?? '' }}
+                                            <a href="tel:{{ $company->phone ?? '' }}">
+                                                {{ $company->phone ?? '' }}
+                                            </a>
                                         </td>
 
                                         <td>
-                                            {{ $company->email ?? '' }}
+                                            <a href="mailto:{{ $company->email ?? '' }}">
+                                                {{ $company->email ?? '' }}
+                                            </a>
                                         </td>
 
                                         <td>

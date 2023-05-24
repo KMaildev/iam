@@ -561,6 +561,45 @@ $redirect_to = $this->redirect_to;
                                                                                                                                             </div>
                                                                                                                                         </div>
                                                                                                                                     </div>
+                                                                                                                                    <div class="form-group ">
+                                                                                                                                        <div class="row">
+                                                                                                                                            <div class="col-sm-4">
+                                                                                                                                                <label class="control-label" for="last_login_at">Last Login At <span class="text-danger">*</span></label>
+                                                                                                                                            </div>
+                                                                                                                                            <div class="col-sm-8">
+                                                                                                                                                <div class="">
+                                                                                                                                                    <textarea placeholder="Enter Last Login At" id="ctrl-last_login_at"  required="" rows="5" name="last_login_at" class=" form-control"><?php  echo $this->set_field_value('last_login_at',""); ?></textarea>
+                                                                                                                                                    <!--<div class="invalid-feedback animated bounceIn text-center">Please enter text</div>-->
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                    <div class="form-group ">
+                                                                                                                                        <div class="row">
+                                                                                                                                            <div class="col-sm-4">
+                                                                                                                                                <label class="control-label" for="last_login_ip">Last Login Ip <span class="text-danger">*</span></label>
+                                                                                                                                            </div>
+                                                                                                                                            <div class="col-sm-8">
+                                                                                                                                                <div class="">
+                                                                                                                                                    <textarea placeholder="Enter Last Login Ip" id="ctrl-last_login_ip"  required="" rows="5" name="last_login_ip" class=" form-control"><?php  echo $this->set_field_value('last_login_ip',""); ?></textarea>
+                                                                                                                                                    <!--<div class="invalid-feedback animated bounceIn text-center">Please enter text</div>-->
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                    <div class="form-group ">
+                                                                                                                                        <div class="row">
+                                                                                                                                            <div class="col-sm-4">
+                                                                                                                                                <label class="control-label" for="device">Device <span class="text-danger">*</span></label>
+                                                                                                                                            </div>
+                                                                                                                                            <div class="col-sm-8">
+                                                                                                                                                <div class="">
+                                                                                                                                                    <textarea placeholder="Enter Device" id="ctrl-device"  required="" rows="5" name="device" class=" form-control"><?php  echo $this->set_field_value('device',""); ?></textarea>
+                                                                                                                                                    <!--<div class="invalid-feedback animated bounceIn text-center">Please enter text</div>-->
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
                                                                                                                                 </div>
                                                                                                                                 <div class="form-group form-submit-btn-holder text-center mt-3">
                                                                                                                                     <div class="form-ajax-status"></div>

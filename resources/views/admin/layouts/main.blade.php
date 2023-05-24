@@ -71,11 +71,11 @@
                     <div class="flex-fill"></div>
                     <div class="navbar nav">
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">
                                 <i class="fas fa-user-circle"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right">
-                                <li><a href="#" class="dropdown-item">Logout</a></li>
+                                <li><a href="{{ route('admin_logout') }}" class="dropdown-item">Logout</a></li>
                             </ul>
                         </li>
                     </div>
