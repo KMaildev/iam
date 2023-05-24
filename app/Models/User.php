@@ -71,6 +71,10 @@ class User extends Authenticatable
         'created_at',
         'updated_at',
         'japan_certificate',
+
+        'last_login_at',
+        'last_login_ip',
+        'device',
     ];
 
     /**

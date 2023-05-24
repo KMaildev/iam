@@ -49,7 +49,14 @@
                         </span>
                     </a>
 
-                    <a href="#" class="list-group-item list-group-item-action">
+                    <a href="{{ route('login_history.index') }}" class="list-group-item list-group-item-action">
+                        <i class="fas fa-history"></i>
+                        <span class="d-none d-lg-inline">
+                            Login History
+                        </span>
+                    </a>
+
+                    <a href="{{ route('admin_logout') }}" class="list-group-item list-group-item-action">
                         <i class="fas fa-lock"></i>
                         <span class="d-none d-lg-inline">
                             Logout

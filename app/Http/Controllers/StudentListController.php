@@ -14,8 +14,13 @@ class StudentListController extends Controller
 {
     public function index(Request $request)
     {
-        $data = User::with('language_level')
-            ->where('account_type', 'student');
+        $data = User::where('account_type', 'student')
+            ->get();
+
+        if (request('language_level')) {
+            $data = User::where('language_level_id', request('language_level'))
+                ->get();
+        }
 
         return DataTables::of($data)
 
@@ -23,12 +28,6 @@ class StudentListController extends Controller
 
             ->editColumn('language_level', function ($each) {
                 return  $each->language_level ? $each->language_level->title : '';
-            })
-
-            ->filterColumn('language_level', function ($query, $keyword) {
-                $query->whereHas('language_level', function ($q1) use ($keyword) {
-                    $q1->where('title', 'like', '%' . $keyword . '%');
-                });
             })
 
             ->addColumn('photo', function ($each) {
@@ -77,8 +76,17 @@ class StudentListController extends Controller
         $company_info = Company::where('user_id', $company)->first();
         $company_id = $company_info->id;
 
-        $data = User::with('language_level')
-            ->where('companie_id', $company_id);
+
+        $data = User::where('account_type', 'student')
+            ->where('companie_id', $company_id)
+            ->get();
+
+        if (request('language_level')) {
+            $data = User::where('account_type', 'student')
+                ->where('language_level_id', request('language_level'))
+                ->where('companie_id', $company_id)
+                ->get();
+        }
 
         return DataTables::of($data)
 
@@ -86,12 +94,6 @@ class StudentListController extends Controller
 
             ->editColumn('language_level', function ($each) {
                 return  $each->language_level ? $each->language_level->title : '';
-            })
-
-            ->filterColumn('language_level', function ($query, $keyword) {
-                $query->whereHas('language_level', function ($q1) use ($keyword) {
-                    $q1->where('title', 'like', '%' . $keyword . '%');
-                });
             })
 
             ->addColumn('photo', function ($each) {
@@ -127,9 +129,19 @@ class StudentListController extends Controller
     public function adminStudentListsDatatable(Request $request)
     {
 
-        $data = User::with('language_level', 'companies')
-            ->where('account_type', 'student');
+        $data = User::where('account_type', 'student')
+            ->get();
 
+        if (request('company_name')) {
+            $data = User::where('companie_id', request('company_name'))
+                ->get();
+        }
+
+        if (request('language')) {
+            $data = User::where('language_level_id', request('language'))
+                ->get();
+        }
+        
         return DataTables::of($data)
 
             ->addIndexColumn()

@@ -6,7 +6,7 @@
             <div class="col-md-12 col-lg-12">
                 <div class="jumbotron">
                     <p class="lead">
-                        Thank you for your register.
+                        Thank you for your registration.
                     </p>
                     <hr class="my-4">
                     <p>

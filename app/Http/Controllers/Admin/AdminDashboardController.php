@@ -19,11 +19,22 @@ class AdminDashboardController extends Controller
             ->count();
 
         $site_visitors =  SiteVisitor::sum('total_count');
-        // session_start();
-        // $session_id = $_SESSION['19cf8687ab2734267a3c58ad42835524user_data'] ?? '';
-        // if ($session_id) {
-        // }else{
-        // }
-        return view('admin.dashboard.index', compact('total_companies', 'total_student', 'total_select_student', 'site_visitors'));
+        
+        session_start();
+        $session_id = $_SESSION['19cf8687ab2734267a3c58ad42835524user_data'] ?? '';
+        if ($session_id) {
+            return view('admin.dashboard.index', compact('total_companies', 'total_student', 'total_select_student', 'site_visitors'));
+        }else{
+            return redirect()->route('home');
+        }
+
+    }
+
+    public function logoutAdmin()
+    {
+        session_start();
+        session_destroy();
+        session_unset();
+        return redirect()->route('home');
     }
 }

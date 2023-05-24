@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ActivitiesController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\CompanyController;
+use App\Http\Controllers\Admin\LoginHistoryController;
 use App\Http\Controllers\Admin\StudentManageController;
 use App\Http\Controllers\AsuTomorrowController;
 use App\Http\Controllers\ChangePasswordController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\StudentDocsController;
 use App\Http\Controllers\StudentListController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
@@ -55,13 +57,16 @@ Route::middleware('auth')->group(function () {
 
     Route::get('student_lists_datatable', [StudentListController::class, 'index'])->name('student_lists_datatable');
     Route::get('company_students_datatable', [StudentListController::class, 'companyStudents'])->name('company_students_datatable');
-    
-
 });
 
 
 // Admin 
+
+
+
 Route::resource('admin_panel', AdminDashboardController::class);
+Route::get('admin_logout', [AdminDashboardController::class, 'logoutAdmin'])->name('admin_logout');
+
 Route::resource('company', CompanyController::class);
 Route::get('user_active_status', [CompanyController::class, 'activeStatus'])->name('user_active_status');
 
@@ -69,5 +74,6 @@ Route::resource('student_manage', StudentManageController::class);
 Route::get('updateSecondSelectDate', [StudentManageController::class, 'updateSecondSelectDate'])->name('updateSecondSelectDate');
 Route::get('updateThirdSelectDate', [StudentManageController::class, 'updateThirdSelectDate'])->name('updateThirdSelectDate');
 
-
 Route::get('admin_student_lists_datatable', [StudentListController::class, 'adminStudentListsDatatable'])->name('admin_student_lists_datatable');
+
+Route::resource('login_history', LoginHistoryController::class);
