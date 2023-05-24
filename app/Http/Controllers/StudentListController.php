@@ -130,7 +130,6 @@ class StudentListController extends Controller
         $data = User::with('language_level', 'companies')
             ->where('account_type', 'student');
 
-
         return DataTables::of($data)
 
             ->addIndexColumn()
@@ -139,15 +138,11 @@ class StudentListController extends Controller
                 return $each->companies ? $each->companies->company_name : '-';
             })
 
-            ->editColumn('language_level', function ($each) {
+
+            ->editColumn('language', function ($each) {
                 return  $each->language_level ? $each->language_level->title : '';
             })
 
-            ->filterColumn('language_level', function ($query, $keyword) {
-                $query->whereHas('language_level', function ($q1) use ($keyword) {
-                    $q1->where('title',  $keyword);
-                });
-            })
 
             ->addColumn('photo', function ($each) {
                 $photo = '';
@@ -211,7 +206,7 @@ class StudentListController extends Controller
             ->addColumn('second_select_date', function ($each) {
                 $second_select_date =
                     '
-                            <input type="date"  id="' . $each->id . '" onchange="updateSecondSelectDate(this);" value="'.$each->second_select_date.'">
+                            <input type="date"  id="' . $each->id . '" onchange="updateSecondSelectDate(this);" value="' . $each->second_select_date . '">
                         ';
                 return $second_select_date;
             })
@@ -219,12 +214,12 @@ class StudentListController extends Controller
             ->addColumn('third_select_date', function ($each) {
                 $third_select_date =
                     '
-                            <input type="date"  id="' . $each->id . '" onchange="updateThirdSelectDate(this);" value="'.$each->third_select_date.'">
+                            <input type="date"  id="' . $each->id . '" onchange="updateThirdSelectDate(this);" value="' . $each->third_select_date . '">
                         ';
                 return $third_select_date;
             })
 
-            ->rawColumns(['company_name', 'language_level', 'photo', 'nrc_photo_back', 'nrc_photo_front', 'household_members', 'japan_certificate', 'action', 'second_select_date', 'third_select_date'])
+            ->rawColumns(['company_name', 'language', 'photo', 'nrc_photo_back', 'nrc_photo_front', 'household_members', 'japan_certificate', 'action', 'second_select_date', 'third_select_date'])
             ->make(true);
     }
 }

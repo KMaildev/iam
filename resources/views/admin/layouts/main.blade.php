@@ -13,13 +13,12 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row g-0">
+        <div class="row g-0" >
 
-            <nav class="col-2 bg-light pr-3 border-right">
-                <h1 class="h4 py-3 text-center text-primary">
-                    <span class="d-none d-lg-inline" style="color: red">
-                        I Am Myanmar
-                    </span>
+            <nav class="col-2  pr-3 border-right">
+                <h1 class="h4 py-3 text-center text-primary" >
+                    <img class="logo-default logo-1x" src="{{ asset('data/logo.jpg') }}" alt="Logo"
+                        style="width: 180px; height: auto;">
                 </h1>
 
                 <div class="list-group text-center text-lg-left">
@@ -38,20 +37,15 @@
                         <span class="d-none d-lg-inline">
                             Company
                         </span>
-                        <span class="d-none d-lg-inline badge bg-danger rounded-pill float-right">20</span>
+                        <span class="d-none d-lg-inline badge bg-danger rounded-pill float-right">
+                            {{ $companie_count }}
+                        </span>
                     </a>
 
                     <a href="{{ route('student_manage.index') }}" class="list-group-item list-group-item-action">
                         <i class="fas fa-chart-line"></i>
                         <span class="d-none d-lg-inline">
                             Students
-                        </span>
-                    </a>
-
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-flag"></i>
-                        <span class="d-none d-lg-inline">
-                            Reports
                         </span>
                     </a>
 
@@ -89,14 +83,7 @@
     </div>
     <script src="{{ asset('admin/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.js') }}"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-
     <script type="text/javascript" src="{{ asset('assets/datatables/jquery.dataTables.js') }}"></script>
-
-    {{-- <script src="{{ asset('assets/datatables/jquery.dataTablesfd53.js?v4.0.1') }}"></script> --}}
-    {{-- <script src="{{ asset('assets/datatables/dataTables.bootstrap4fd53.js?v4.0.1') }}"></script> --}}
-
-    {{-- <script src="{{ asset('assets/datatables/datatables.minfd53.js?v4.0.1') }}"></script> --}}
     <script src="{{ asset('assets/datatables/tables/datatable.minfd53.js') }}"></script>
     <script src="{{ asset('assets/toastr/toastr.js') }}"></script>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activities;
+use App\Models\SiteVisitor;
 use App\Models\Tokutei;
 use Illuminate\Http\Request;
 
@@ -14,11 +15,9 @@ class WelcomeController extends Controller
         $tokuteis = Tokutei::all();
         $allSessions = session()->all();
 
-        session_start();
-        $session_id = $_SESSION['19cf8687ab2734267a3c58ad42835524user_data'] ?? '';
-        if ($session_id) {
-        }else{
-        }
+        $site_visitors = SiteVisitor::first();
+        $site_visitors->total_count = $site_visitors->total_count + 1;
+        $site_visitors->update();
 
         return view('welcome', compact('activities', 'tokuteis'));
     }

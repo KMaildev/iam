@@ -1,5 +1,13 @@
 @extends('admin.layouts.main')
 @section('content')
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
     <div class="col-md-12 col-sm-12 col-lg-12 py-2">
         <div class="card">
             <div class="card-header">
@@ -7,7 +15,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive text-nowrap">
-                    <table id="datatable" class="table table-bordered  yajra-datatable">
+                    <table id="datatable" class="table  yajra-datatable">
                         <thead>
                             <tr style="background-color: #903731;">
 
@@ -133,11 +141,11 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td style="display: none"></td>
+                                <td style="display: none"></td>
+                                <td style="display: none"></td>
+                                <td style="display: none"></td>
+                                <td style="display: none"></td>
                             </tr>
                         </thead>
                     </table>
@@ -184,7 +192,7 @@
                         data: 'third_select_date',
                         name: 'third_select_date',
                     },
-                    
+
                     {
                         data: 'name',
                         name: 'name',
@@ -216,8 +224,8 @@
                     },
 
                     {
-                        data: 'language_level',
-                        name: 'language_level',
+                        data: 'language',
+                        name: 'language',
                     },
 
                     {
@@ -326,7 +334,7 @@
 
 
 
-        function updateSecondSelectDate(object){
+        function updateSecondSelectDate(object) {
             var user_id = object.id;
             var second_select_date = object.value;
             var url = '{{ url('updateSecondSelectDate') }}';
@@ -344,7 +352,7 @@
             });
         }
 
-        function updateThirdSelectDate(object){
+        function updateThirdSelectDate(object) {
             var user_id = object.id;
             var second_select_date = object.value;
             var url = '{{ url('updateThirdSelectDate') }}';

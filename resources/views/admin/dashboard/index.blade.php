@@ -5,10 +5,12 @@
         <div class="col">
             <div class="card mb-3">
                 <div class="card-body">
-                    <h3 class="card-title h2">1,250</h3>
+                    <h3 class="card-title h2">
+                        {{ $total_companies }}
+                    </h3>
                     <span class="text-success">
                         <i class="fas fa-chart-line"></i>
-                        Daily visitors
+                        Total Company
                     </span>
                 </div>
             </div>
@@ -16,10 +18,12 @@
         <div class="col">
             <div class="card mb-3">
                 <div class="card-body">
-                    <h3 class="card-title h2">8,210</h3>
+                    <h3 class="card-title h2">
+                        {{ $total_student }}
+                    </h3>
                     <span class="text-success">
                         <i class="fas fa-chart-line"></i>
-                        Weekly visitors
+                        Total Student
                     </span>
                 </div>
             </div>
@@ -27,10 +31,12 @@
         <div class="col">
             <div class="card mb-3">
                 <div class="card-body">
-                    <h3 class="card-title h2">12,560</h3>
+                    <h3 class="card-title h2">
+                        {{ $total_select_student }}
+                    </h3>
                     <span class="text-success">
                         <i class="fas fa-chart-line"></i>
-                        Monthly visitors
+                        Total Select Student
                     </span>
                 </div>
             </div>
@@ -38,10 +44,12 @@
         <div class="col">
             <div class="card mb-3">
                 <div class="card-body">
-                    <h3 class="card-title h2">102,250</h3>
+                    <h3 class="card-title h2">
+                        {{ $site_visitors }}
+                    </h3>
                     <span class="text-success">
                         <i class="fas fa-chart-line"></i>
-                        Yearly visitors
+                        Site visitors
                     </span>
                 </div>
             </div>
